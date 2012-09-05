@@ -66,6 +66,7 @@ class SelectCategory {
 
 			# Begin list output, use <div> to enable custom formatting
 			$level = 0;
+			$olddepth = -1;
 			$pageObj->$place .= '<ul id="SelectCategoryList">';
 
 			foreach( $allCats as $cat => $depth ) {
@@ -94,7 +95,7 @@ class SelectCategory {
 					$pageObj->$place .= '<ul style="'.$class.'">'."\n";
 					$level++;
 				}
-				if( $level == $depth ) {
+				if ($depth <= $olddepth) {
 					$pageObj->$place .= '</li>'."\n";
 				}
 				while( $level > $depth ) {
@@ -108,6 +109,8 @@ class SelectCategory {
 				$pageObj->$place .= '<li' . $open . '><input type="checkbox" name="SelectCategoryList[]" value="'.$category.'" class="checkbox" '.$checked.' />'.$skin->link( $title, $catName )."\n";
 				# set id for next level
 				$level_id = 'sc_'.$cat;
+
+				$olddepth = $depth;
 			} # End walking through cats (foreach)
 			# End of list output - close all remaining divs
 			while( $level > -1 ) {
