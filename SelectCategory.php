@@ -64,7 +64,7 @@ if( !isset( $wgSelectCategoryEnableSubpages ) ) $wgSelectCategoryEnableSubpages 
 $wgExtensionCredits['parserhook'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'SelectCategory',
-	'version'        => '0.8.1',
+	'version'        => '0.8.2',
 	'author'         => array( 'Leon Weber', 'Manuel Schneider' ),
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:SelectCategory',
 	'descriptionmsg' => 'selectcategory-desc',
