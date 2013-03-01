@@ -23,8 +23,10 @@ $messages['en'] = array(
 
 /** Message documentation (Message documentation)
  * @author Purodha
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
+	'selectcategory-title' => '{{Identical|Select category}}',
 	'selectcategory-desc' => 'Used in [[Special:Version]]',
 );
 
@@ -356,6 +358,15 @@ $messages['lb'] = array(
 	'selectcategory-subtitle' => 'Shift + Maus fir méi Rubriken hannereneen unzewielen, Ctrl + Maus fir eenzel Rubriken unzewielen',
 );
 
+/** Minangkabau (Baso Minangkabau)
+ * @author Iwan Novirion
+ */
+$messages['min'] = array(
+	'selectcategory-title' => 'Pilih kategori',
+	'selectcategory-desc' => 'Mangijinkan pangguno untuak mamiliah kategori nan lah ado saaik manyuntiang laman',
+	'selectcategory-subtitle' => 'Takan "Shift"+klik untuak mamilih entri nan baruruik, takan "Ctrl"+klik untuak entri nan indak baruruik.',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */
@@ -381,6 +392,15 @@ $messages['mr'] = array(
 	'selectcategory-subtitle' => 'शिफ्ट+माउस एकापुढे एक असलेल्या नोंदी निवडण्यासाठी, कंट्रोल+माउस एका पुढे एक नसलेल्या नोंदी निवडण्यासाठी.',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Jon Harald Søby
+ */
+$messages['nb'] = array(
+	'selectcategory-title' => 'Velg kategorier',
+	'selectcategory-desc' => 'Lar brukeren velge fra eksisterende kategorier når han/hun redigerer en side',
+	'selectcategory-subtitle' => 'Shift+klikk for å velge flere sammenhengende alternativer, Ctrl+klikk for å velge ikke-sammenhengende alternativer.',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -397,15 +417,6 @@ $messages['nn'] = array(
 	'selectcategory-title' => 'Vel kategoriar',
 	'selectcategory-desc' => 'Lét brukaren velja frå eksisterande kategoriar når han/ho endrar ei sida.',
 	'selectcategory-subtitle' => 'Shift+klikk for å velja fleire samahengande val, Ctrl+klikk for å velja ikkje-samanhengande val.',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
- */
-$messages['nb'] = array(
-	'selectcategory-title' => 'Velg kategorier',
-	'selectcategory-desc' => 'Lar brukeren velge fra eksisterende kategorier når han/hun redigerer en side',
-	'selectcategory-subtitle' => 'Shift+klikk for å velge flere sammenhengende alternativer, Ctrl+klikk for å velge ikke-sammenhengende alternativer.',
 );
 
 /** Occitan (Occitan)
@@ -612,4 +623,3 @@ $messages['zh-hant'] = array(
 	'selectcategory-desc' => '讓使用者可以在編輯頁面時直接選擇已存在的分類',
 	'selectcategory-subtitle' => '按著 Shift 鍵再以滑鼠選取連續的項目，按著 Ctrl 鍵再以滑鼠選取非連續的項目。',
 );
-
