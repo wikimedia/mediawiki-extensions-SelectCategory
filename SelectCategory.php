@@ -6,8 +6,9 @@
  *
  * @file
  * @ingroup Extensions
- * @author Leon Weber <leon.weber@leonweber.de> & Manuel Schneider <manuel.schneider@wikimedia.ch>
+ * @author Leon Weber <leon.weber@leonweber.de> & Manuel Schneider <manuel.schneider@wikimedia.ch> & Christian Boltz <mediawiki+SelectCategory@cboltz.de>
  * @copyright © 2006 by Leon Weber & Manuel Schneider
+ * @copyright © 2013 by Christian Boltz
  * @licence GNU General Public Licence 2.0 or later
  */
 
@@ -69,7 +70,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'SelectCategory',
 	'version'        => '0.8.2',
-	'author'         => array( 'Leon Weber', 'Manuel Schneider' ),
+	'author'         => array( 'Leon Weber', 'Manuel Schneider', 'Christian Boltz' ),
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:SelectCategory',
 	'descriptionmsg' => 'selectcategory-desc',
 );

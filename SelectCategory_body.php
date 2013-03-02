@@ -7,8 +7,9 @@
  *
  * @file
  * @ingroup Extensions
- * @author Leon Weber <leon@leonweber.de> & Manuel Schneider <manuel.schneider@wikimedia.ch>
- * @copyright Â© 2006 by Leon Weber & Manuel Schneider
+ * @author Leon Weber <leon@leonweber.de> & Manuel Schneider <manuel.schneider@wikimedia.ch> & Christian Boltz <mediawiki+SelectCategory@cboltz.de>
+ * @copyright © 2006 by Leon Weber & Manuel Schneider
+ * @copyright © 2013 by Christian Boltz
  * @licence GNU General Public Licence 2.0 or later
  */
 

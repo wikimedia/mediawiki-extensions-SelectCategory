@@ -3,6 +3,7 @@ Changes since the last release:
   - [Bug 38374] option to disallow selecting the top-level category
     (new config option $wgSelectCategoryToplevelAllowed)
   - [Bug 24911] $wgSelectCategoryRoot ignored on Special:Upload
+  - add Christian Boltz to the list of authors
 
 * v0.8.2 - 2013-02-28
   - moved to git
