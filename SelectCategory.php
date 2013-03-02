@@ -60,6 +60,10 @@ if( !isset( $wgSelectCategoryRoot ) ) $wgSelectCategoryRoot = array(
 # $wgSelectCategoryEnableSubpages - if the extension should be active on subpages or not (true, as subpages are disabled by default)
 if( !isset( $wgSelectCategoryEnableSubpages ) ) $wgSelectCategoryEnableSubpages = true;
 
+# $wgSelectCategoryToplevelAllowed - should the toplevel category be allowed for selection (false will hide the checkbox for it)
+# Note: if you set this to false, articles in the toplevel category will be removed from this category on next edit
+if( !isset( $wgSelectCategoryToplevelAllowed ) ) $wgSelectCategoryToplevelAllowed = true;
+
 ## Register extension setup hook and credits:
 $wgExtensionCredits['parserhook'][] = array(
 	'path'           => __FILE__,

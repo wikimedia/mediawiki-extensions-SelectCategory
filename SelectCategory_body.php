@@ -28,6 +28,7 @@ class SelectCategory {
 			# Register CSS file for our select box
 			global $wgOut, $wgUser, $wgExtensionAssetsPath;
 			global $wgSelectCategoryMaxLevel;
+			global $wgSelectCategoryToplevelAllowed;
 
 			$wgOut->addExtensionStyle( "{$wgExtensionAssetsPath}/SelectCategory/SelectCategory.css" );
 			$wgOut->addExtensionStyle( "{$wgExtensionAssetsPath}/SelectCategory/jquery.treeview.css" );
@@ -106,7 +107,11 @@ class SelectCategory {
 				$catName = str_replace( '_', ' ', $category );
 				$title = Title::newFromText( $category, NS_CATEGORY );
 				# Output the actual checkboxes, indented
-				$pageObj->$place .= '<li' . $open . '><input type="checkbox" name="SelectCategoryList[]" value="'.$category.'" class="checkbox" '.$checked.' />'.$skin->link( $title, $catName )."\n";
+				$pageObj->$place .= '<li' . $open . '>';
+				if ($level > 0 || $wgSelectCategoryToplevelAllowed) {
+					$pageObj->$place .= '<input type="checkbox" name="SelectCategoryList[]" value="'.$category.'" class="checkbox" '.$checked.' />';
+				}
+				$pageObj->$place .=	$skin->link( $title, $catName )."\n";
 				# set id for next level
 				$level_id = 'sc_'.$cat;
 
