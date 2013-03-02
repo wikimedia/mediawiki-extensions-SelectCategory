@@ -1,5 +1,6 @@
 Changes since the last release:
-  - [Bug 24439] - Categories are not saved when doing upload of files
+  - [Bug 23106] fix $wgSelectCategoryEnableSubpages
+  - [Bug 24439] Categories are not saved when doing upload of files
   - [Bug 38374] option to disallow selecting the top-level category
     (new config option $wgSelectCategoryToplevelAllowed)
   - [Bug 24911] $wgSelectCategoryRoot ignored on Special:Upload

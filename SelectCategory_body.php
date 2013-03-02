@@ -327,7 +327,7 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 
 		if ($enabledForNamespace
 			&& (!$isSubpage
-				|| $isSubpage && $wgSelectCategoryEnableSubpage)
+				|| $isSubpage && $wgSelectCategoryEnableSubpages)
 			&& $pageObj->section == false) {
 			return true;
 		}
