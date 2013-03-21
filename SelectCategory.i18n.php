@@ -508,6 +508,13 @@ $messages['sk'] = array(
 	'selectcategory-subtitle' => 'Shift+kliknutie označí súvislú skupinu položiek, ctrl+kliknutie označí jednotlivé nesúvislé položky.',
 );
 
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Милан Јелисавчић
+ */
+$messages['sr-ec'] = array(
+	'selectcategory-title' => 'Изаберите категорије',
+);
+
 /** Seeltersk (Seeltersk)
  * @author Pyt
  */
