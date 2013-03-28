@@ -26,8 +26,10 @@ $messages['en'] = array(
  * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'selectcategory-title' => '{{Identical|Select category}}',
-	'selectcategory-desc' => 'Used in [[Special:Version]]',
+	'selectcategory-title' => 'This message is followed by a list of the categories.
+{{Identical|Select category}}',
+	'selectcategory-desc' => '{{desc|name=Select Category|url=http://www.mediawiki.org/wiki/Extension:SelectCategory}}',
+	'selectcategory-subtitle' => 'Unused at this time.',
 );
 
 /** Arabic (العربية)
