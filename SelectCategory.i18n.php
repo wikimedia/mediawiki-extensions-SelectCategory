@@ -360,6 +360,14 @@ $messages['lb'] = array(
 	'selectcategory-subtitle' => 'Shift + Maus fir méi Rubriken hannereneen unzewielen, Ctrl + Maus fir eenzel Rubriken unzewielen',
 );
 
+/** Mizo (Mizo ţawng)
+ * @author RMizo
+ */
+$messages['lus'] = array(
+	'selectcategory-title' => 'Pawl thlanna',
+	'selectcategory-desc' => "Phêk siam laiin hmangtute'n pawl awmsa an thlan zung zung theihna hmanrua",
+);
+
 /** Minangkabau (Baso Minangkabau)
  * @author Iwan Novirion
  */
