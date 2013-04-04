@@ -21,7 +21,10 @@ $messages['en'] = array(
 	'selectcategory-subtitle' => 'Shift-mouse to select multiple contiguous entries, Ctrl-mouse to select non-contiguous entries.',
 );
 
-/** Message documentation (Message documentation)
+/** Message documentation (This is the name of the message documentation language code (qqq). Follow the rules of your languages and use small first letter if it doesn't capitalize language names always.
+
+It might be easier to translate it as "translation guidelines" or "translation help".
+{{Identical|Message documentation}})
  * @author Purodha
  * @author Shirayuki
  */
