@@ -350,7 +350,7 @@ $messages['km'] = array(
  */
 $messages['ksh'] = array(
 	'selectcategory-title' => 'Saachjruppe ußsöke',
-	'selectcategory-desc' => 'Määt et müjjelesch, beim Sigge-Ändere uß dä Saachjroppe ußzewähle, di ald beshtonn.',
+	'selectcategory-desc' => 'Määd et möjjelesch, beim Sigge-Ändere uß dä Saachjroppe ußzewähle, di ald beschtonn.',
 	'selectcategory-subtitle' => 'Ettlije Enndräsch op eijmol ußsöke met „Jrußschreff+Muus“, un nit mieh ußsööke met „Strg+Muus“.',
 );
 
