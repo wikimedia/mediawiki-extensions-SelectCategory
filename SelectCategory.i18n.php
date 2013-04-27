@@ -579,6 +579,15 @@ $messages['tr'] = array(
 	'selectcategory-subtitle' => 'Birden fazla bitiş girdi seçmek için Shift-fare, bitişik olmayan girdileri seçmek için Ctrl-fare kombinasyonunu kullanın.',
 );
 
+/** Ukrainian (українська)
+ * @author Base
+ */
+$messages['uk'] = array(
+	'selectcategory-title' => 'Вибір категорій',
+	'selectcategory-desc' => 'Дозволяє користувачу обрати одну із категорій, що існують під час редагування сторінки',
+	'selectcategory-subtitle' => 'Shift+мишка для вибору декількох послідовних записів, Ctrl+мишка для вибору непослідовних елементів.',
+);
+
 /** Vèneto (Vèneto)
  * @author Candalua
  */
