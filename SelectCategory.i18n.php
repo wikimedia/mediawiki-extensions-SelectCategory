@@ -468,22 +468,24 @@ $messages['ps'] = array(
 	'selectcategory-title' => 'وېشنيزې ټاکل',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Lijealso
+ * @author Luckas
  * @author Malafaya
  */
 $messages['pt'] = array(
-	'selectcategory-title' => 'Seleccionar categorias',
-	'selectcategory-desc' => 'Permitir ao utilizador seleccionar a partir das categorias existentes quando editar uma página',
-	'selectcategory-subtitle' => 'Shift-clique para seleccionar múltiplas entradas contíguas, Ctrl-clique para seleccionar entradas não-contíguas.',
+	'selectcategory-title' => 'Selecionar categorias',
+	'selectcategory-desc' => 'Permitir ao utilizador selecionar a partir das categorias existentes quando editar uma página',
+	'selectcategory-subtitle' => 'Shift-clique para selecionar múltiplas entradas contíguas, Ctrl-clique para selecionar entradas não-contíguas.',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Eduardo.mps
+ * @author Luckas
  */
 $messages['pt-br'] = array(
 	'selectcategory-title' => 'Selecionar categorias',
-	'selectcategory-desc' => 'Permitir ao utilizador selecionar a partir das categorias existentes quando editar uma página',
+	'selectcategory-desc' => 'Permitir ao usuário selecionar a partir das categorias existentes quando editar uma página',
 	'selectcategory-subtitle' => 'Shift-clique para selecionar múltiplas entradas contíguas, Ctrl-clique para selecionar entradas não-contíguas.',
 );
 
