@@ -21,10 +21,7 @@ $messages['en'] = array(
 	'selectcategory-subtitle' => 'Shift-mouse to select multiple contiguous entries, Ctrl-mouse to select non-contiguous entries.',
 );
 
-/** Message documentation (This is the name of the message documentation language code (qqq). Follow the rules of your languages and use small first letter if it doesn't capitalize language names always.
-
-It might be easier to translate it as "translation guidelines" or "translation help".
-{{Identical|Message documentation}})
+/** Message documentation (Message documentation)
  * @author Purodha
  * @author Shirayuki
  */
@@ -53,7 +50,7 @@ $messages['arz'] = array(
 	'selectcategory-subtitle' => 'Shift-mouse لاختيار مدخلات متوافقة متعددة، Ctrl-mouse لاختيار مدخلات غير متوافقة.',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Esbardu
  */
 $messages['ast'] = array(
@@ -76,7 +73,7 @@ $messages['bcl'] = array(
 	'selectcategory-title' => 'Magpilì nin mga kategorya',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
  */
@@ -86,7 +83,7 @@ $messages['be-tarask'] = array(
 	'selectcategory-subtitle' => 'Shift+клік мышкі выбірае некалькі суседніх элемэнтаў, Ctrl+клік мышкі выбірае элемэнты, якія знаходзяцца ня побач.',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  * @author Spiritia
  */
@@ -104,7 +101,7 @@ $messages['bn'] = array(
 	'selectcategory-desc' => 'পাতা সম্পাদনার সময় ব্যবহারকারীকে বিদ্যমান বিষয়শ্রেণী থেকে তা নির্বাচনের অনুমতি',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
@@ -113,7 +110,7 @@ $messages['br'] = array(
 	'selectcategory-subtitle' => 'Pennlizh.+klik da ziuzañ meur a enmont stok-ha-stok, Ctrl+klik da ziuzañ enmontoù distok.',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -122,14 +119,14 @@ $messages['bs'] = array(
 	'selectcategory-subtitle' => 'Pritisnite Shift i mišem odaberite više poredanih stavki, pritisnite Ctrl i mišem odaberite stavke koje nisu poredane.',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author Solde
  */
 $messages['ca'] = array(
 	'selectcategory-title' => 'Seleccinoa les categories',
 );
 
-/** Czech (Česky)
+/** Czech (česky)
  * @author Kuvaly
  */
 $messages['cs'] = array(
@@ -148,7 +145,7 @@ $messages['de'] = array(
 	'selectcategory-subtitle' => 'Shift-Maus um mehrere nachfolgende Einträge zu (de-)selektieren, Strg-Maus um einzelne Einträge zu (de-)selektieren.',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -172,7 +169,7 @@ $messages['eo'] = array(
 	'selectcategory-desc' => 'Permesas al la uzanto selekti de ekzistantaj kategorioj kiam redaktante paĝojn',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  */
 $messages['es'] = array(
@@ -181,14 +178,14 @@ $messages['es'] = array(
 	'selectcategory-subtitle' => 'tecla shift y botón del mouse para seleccionar entradas contíguas múltiples, tecla ctrl y botón del mouse para seleccionar entradas no contíguas.',
 );
 
-/** Basque (Euskara)
+/** Basque (euskara)
  * @author Kobazulo
  */
 $messages['eu'] = array(
 	'selectcategory-title' => 'Kategoriak hautatu',
 );
 
-/** Extremaduran (Estremeñu)
+/** Extremaduran (estremeñu)
  * @author Better
  */
 $messages['ext'] = array(
@@ -206,7 +203,7 @@ $messages['fa'] = array(
 	'selectcategory-subtitle' => 'از Shift-mouse برای انتخاب چند مدخل مجاور استفاده کنید،Ctrl-mouse را برای مدخل های غیر مجاور به کار برید.',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Jaakonam
  * @author Nike
  */
@@ -216,7 +213,7 @@ $messages['fi'] = array(
 	'selectcategory-subtitle' => 'Painamalla yhtä aikaa Shift-näppäintä ja hiiren vasenta painiketta voi valikosta poimia useita peräkkäisiä vaihtoehtoja. Ctrl-näppäintä ja hiiren vasenta painiketta yhtä aikaa painamalla voi valita haluamansa vaihtoehdot yksitellen.',
 );
 
-/** French (Français)
+/** French (français)
  * @author Jean-Frédéric
  * @author Marius Engler <marius.engler@coop.ch>
  * @author Sherbrooke
@@ -227,14 +224,14 @@ $messages['fr'] = array(
 	'selectcategory-subtitle' => 'Maj+clic afin de (dé)sélectionner plusieurs catégories d’affilée, Ctrl+clic afin de (dé)sélectionner des catégories individuellement.',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
 	'selectcategory-title' => 'Chouèsir les catègories',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Alma
  * @author Xosé
  */
@@ -271,7 +268,7 @@ $messages['hi'] = array(
 	'selectcategory-title' => 'श्रेणीयाँ चुनें',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
@@ -280,7 +277,7 @@ $messages['hsb'] = array(
 	'selectcategory-subtitle' => 'Umschalt-Myš, zo bychu so wjacore susodne zapiski wubrali, Strg-myš, zo bychu so njesusodne zapiski wubrali.',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Glanthor Reviol
  */
 $messages['hu'] = array(
@@ -289,7 +286,7 @@ $messages['hu'] = array(
 	'selectcategory-subtitle' => 'Shift+egérkattintás több egymás után következő bejegyzés kijelöléséhez, Ctrl+kattintás nem egymás utáni bejegyzések kijelöléséhez.',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -308,7 +305,7 @@ $messages['id'] = array(
 	'selectcategory-subtitle' => 'Tekan "Shift"+klik untuk memilih entri yang berurutan, Tekan "Ctrl"+klik untuk memilih entri yang tidak berurutan.',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author BrokenArrow
  * @author Darth Kule
  * @author Marius Engler <marius.engler@coop.ch>
@@ -380,7 +377,7 @@ $messages['min'] = array(
 	'selectcategory-subtitle' => 'Takan "Shift"+klik untuak mamilih entri nan baruruik, takan "Ctrl"+klik untuak entri nan indak baruruik.',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -405,8 +402,7 @@ $messages['mr'] = array(
 	'selectcategory-subtitle' => 'शिफ्ट+माउस एकापुढे एक असलेल्या नोंदी निवडण्यासाठी, कंट्रोल+माउस एका पुढे एक नसलेल्या नोंदी निवडण्यासाठी.',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Jon Harald Søby
+/** Norwegian Bokmål (norsk bokmål)
  */
 $messages['nb'] = array(
 	'selectcategory-title' => 'Velg kategorier',
@@ -423,8 +419,9 @@ $messages['nl'] = array(
 	'selectcategory-subtitle' => 'Shiftklik om meerdere opeenvolgende categorieën te selecteren, Ctrlklik om niet-openvolgende categorieën te selecteren.',
 );
 
-/** Norwegian Nynorsk (‪Norsk (nynorsk)‬)
+/** Norwegian Nynorsk (norsk nynorsk)
  * @author Harald Khan
+ * @author Njardarlogar
  */
 $messages['nn'] = array(
 	'selectcategory-title' => 'Vel kategoriar',
@@ -432,7 +429,7 @@ $messages['nn'] = array(
 	'selectcategory-subtitle' => 'Shift+klikk for å velja fleire samahengande val, Ctrl+klikk for å velja ikkje-samanhengande val.',
 );
 
-/** Occitan (Occitan)
+/** Occitan (occitan)
  * @author Cedric31
  */
 $messages['oc'] = array(
@@ -441,7 +438,7 @@ $messages['oc'] = array(
 	'selectcategory-subtitle' => "Maj+click pr'amor de (de)seleccionar mantuna categoria d’arrèu, Ctrl+click pr'amor de (de)seleccionar de categorias individualament.",
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Derbeth
  * @author Leinad
  */
@@ -489,14 +486,14 @@ $messages['pt-br'] = array(
 	'selectcategory-subtitle' => 'Shift-clique para selecionar múltiplas entradas contíguas, Ctrl-clique para selecionar entradas não-contíguas.',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'selectcategory-title' => 'Selectează categoriile',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -505,7 +502,7 @@ $messages['roa-tara'] = array(
 	'selectcategory-subtitle' => "Cazze 'u SHIFT e 'u mouse pe scacchià cchiù categorije une attaccate a l'otre, cazze 'u CTRL e 'u mouse pe scacchià cchiù categorije ca non ge vonne une rete a l'otre.",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -514,7 +511,7 @@ $messages['ru'] = array(
 	'selectcategory-subtitle' => 'Щелчёк с клавишей Shift — выбор последовательности элементов, щелчёк с клавишей Ctrl — выбор непоследовательных элементов.',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -539,7 +536,7 @@ $messages['stq'] = array(
 	'selectcategory-subtitle' => 'Shift-Muus uum moorere ätterfoulgjende Iendraage tou (de-)selektierjen, Strg-Muus uum eenpelde Iendraage tou (de-)selektierjen.',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author M.M.S.
  */
 $messages['sv'] = array(
@@ -590,7 +587,7 @@ $messages['uk'] = array(
 	'selectcategory-subtitle' => 'Shift+мишка для вибору декількох послідовних записів, Ctrl+мишка для вибору непослідовних елементів.',
 );
 
-/** Vèneto (Vèneto)
+/** vèneto (vèneto)
  * @author Candalua
  */
 $messages['vec'] = array(
@@ -599,7 +596,7 @@ $messages['vec'] = array(
 	'selectcategory-subtitle' => 'Struca el boton del mouse tegnendo macà MAIUSC par selessionar più voçi adiacenti o CTRL par selessionar più voçi non adiacenti.',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(
@@ -634,7 +631,7 @@ $messages['yue'] = array(
 	'selectcategory-subtitle' => '撳住Shift掣再用個mouse去揀連續嘅項目，撳住Ctrl掣再用個mouse去揀非連續嘅項目。',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Gaoxuewei
  * @author Shinjiman
  */
@@ -644,7 +641,7 @@ $messages['zh-hans'] = array(
 	'selectcategory-subtitle' => '按着Shift键再以鼠标选取连续的项目，按着Ctrl键再以鼠标选取非连续的项目。',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (中文（繁體）‎)
  * @author Alexsh
  * @author Mark85296341
  * @author Shinjiman
