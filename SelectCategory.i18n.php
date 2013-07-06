@@ -438,6 +438,14 @@ $messages['oc'] = array(
 	'selectcategory-subtitle' => "Maj+click pr'amor de (de)seleccionar mantuna categoria d’arrèu, Ctrl+click pr'amor de (de)seleccionar de categorias individualament.",
 );
 
+/** Punjabi (ਪੰਜਾਬੀ)
+ * @author Babanwalia
+ */
+$messages['pa'] = array(
+	'selectcategory-title' => 'ਸ਼੍ਰੇਣੀਆਂ ਚੁਣੋ',
+	'selectcategory-desc' => 'ਸਫ਼ਾ ਸੋਧਣ ਵੇਲੇ ਵਰਤੋਂਕਾਰ ਨੂੰ ਮੌਜੂਦਾ ਸ਼੍ਰੇਣੀਆਂ ਵਿੱਚੋਂ ਚੁਣਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿੰਦਾ ਹੈ।',
+);
+
 /** Polish (polski)
  * @author Derbeth
  * @author Leinad
