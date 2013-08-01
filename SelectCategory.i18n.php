@@ -126,6 +126,13 @@ $messages['ca'] = array(
 	'selectcategory-title' => 'Seleccinoa les categories',
 );
 
+/** Chechen (нохчийн)
+ * @author Умар
+ */
+$messages['ce'] = array(
+	'selectcategory-title' => 'Категори харжар',
+);
+
 /** Czech (česky)
  * @author Kuvaly
  */
