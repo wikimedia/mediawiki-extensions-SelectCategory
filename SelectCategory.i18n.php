@@ -349,6 +349,15 @@ $messages['km'] = array(
 	'selectcategory-desc' => 'អនុញ្ញាត អ្នកប្រើប្រាស់ ឱ្យជ្រើសយក ពីចំណាត់ក្រុមមានស្រាប់ ពេលកែប្រែ មួយទំព័រ',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'selectcategory-title' => '분류 선택',
+	'selectcategory-desc' => '사용자가 문서를 편집할 때 기존 분류에서 선택할 수 있습니다.',
+	'selectcategory-subtitle' => 'Shift-마우스로 연속된 여러 항목을 선택하고, Ctrl-마우스로 연속되지 않는 항목을 선택하세요.',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
