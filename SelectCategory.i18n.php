@@ -362,7 +362,7 @@ $messages['ko'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'selectcategory-title' => 'Saachjruppe ußsöke',
+	'selectcategory-title' => 'Saachjroppe ußsöke',
 	'selectcategory-desc' => 'Määd et möjjelesch, beim Sigge-Ändere uß dä Saachjroppe ußzewähle, di ald beschtonn.',
 	'selectcategory-subtitle' => 'Ettlije Enndräsch op eijmol ußsöke met „Jrußschreff+Muus“, un nit mieh ußsööke met „Strg+Muus“.',
 );
