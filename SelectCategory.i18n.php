@@ -133,7 +133,7 @@ $messages['ce'] = array(
 	'selectcategory-title' => 'Категори харжар',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Kuvaly
  */
 $messages['cs'] = array(
