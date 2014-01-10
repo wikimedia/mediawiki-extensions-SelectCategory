@@ -27,7 +27,7 @@ class SelectCategory {
 		# check if we should do anything or sleep
 		if ( self::checkConditions( $isUpload, $pageObj ) ) {
 			# Register CSS file for our select box
-			global $wgOut, $wgUser, $wgExtensionAssetsPath;
+			global $wgOut, $wgExtensionAssetsPath;
 			global $wgSelectCategoryMaxLevel;
 			global $wgSelectCategoryToplevelAllowed;
 
@@ -36,17 +36,15 @@ class SelectCategory {
 			$wgOut->addScriptFile( "{$wgExtensionAssetsPath}/SelectCategory/jquery.treeview.js" );
 			$wgOut->addScriptFile( "{$wgExtensionAssetsPath}/SelectCategory/SelectCategory.js" );
 
-			$skin = $wgUser->getSkin();
-
 			# Get all categories from wiki
 			$allCats = self::getAllCategories( $isUpload ? NS_IMAGE : $pageObj->mTitle->getNamespace() );
 			# Load system messages
-		
+
 			# Get the right member variables, depending on if we're on an upload form or not
 			if( !$isUpload ) {
 				# Extract all categorylinks from page
 				$pageCats = self::getPageCategories( $pageObj );
-	
+
 				# Never ever use editFormTextTop here as it resides outside
 				# the <form> so we will never get contents
 				$place = 'editFormTextAfterWarn';
@@ -112,7 +110,7 @@ class SelectCategory {
 				if ($level > 0 || $wgSelectCategoryToplevelAllowed) {
 					$pageObj->$place .= '<input type="checkbox" name="SelectCategoryList[]" value="'.$category.'" class="checkbox" '.$checked.' />';
 				}
-				$pageObj->$place .=	$skin->link( $title, $catName )."\n";
+				$pageObj->$place .=	Linker::link( $title, $catName )."\n";
 				# set id for next level
 				$level_id = 'sc_'.$cat;
 
