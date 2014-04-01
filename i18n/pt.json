@@ -1,0 +1,12 @@
+{
+    "@metadata": {
+        "authors": [
+            "Lijealso",
+            "Luckas",
+            "Malafaya"
+        ]
+    },
+    "selectcategory-title": "Selecionar categorias",
+    "selectcategory-desc": "Permitir ao utilizador selecionar a partir das categorias existentes quando editar uma página",
+    "selectcategory-subtitle": "Shift-clique para selecionar múltiplas entradas contíguas, Ctrl-clique para selecionar entradas não-contíguas."
+}

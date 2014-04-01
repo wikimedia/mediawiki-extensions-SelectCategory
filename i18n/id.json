@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": [
+            "Bennylin",
+            "Ivan Lanin <ivanlanin@gmail.com>"
+        ]
+    },
+    "selectcategory-title": "Pilih kategori",
+    "selectcategory-desc": "Mengijinkan pengguna pada saat menyunting suatu halaman untuk memilih dari kategori-kategori yang telah ada",
+    "selectcategory-subtitle": "Tekan \"Shift\"+klik untuk memilih entri yang berurutan, Tekan \"Ctrl\"+klik untuk memilih entri yang tidak berurutan."
+}

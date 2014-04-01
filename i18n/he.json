@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": [
+            "Rotemliss",
+            "YaronSh"
+        ]
+    },
+    "selectcategory-title": "בחירת קטגוריות",
+    "selectcategory-desc": "מתן האפשרות למשתמש לבחור מקטגוריות קיימות בעת עריכת דף.",
+    "selectcategory-subtitle": "השתמשו ב־Shift בזמן הלחיצה על העכבר כדי לבחור מספר רשומות עוקבות, והשתמשו ב־Ctrl בזמן לחיצת העכבר כדי לבחור מספר רשומות לא עוקבות."
+}

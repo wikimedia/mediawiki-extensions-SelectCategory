@@ -69,13 +69,14 @@ if( !isset( $wgSelectCategoryToplevelAllowed ) ) $wgSelectCategoryToplevelAllowe
 $wgExtensionCredits['parserhook'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'SelectCategory',
-	'version'        => '0.8.2',
+	'version'        => '0.9.0',
 	'author'         => array( 'Leon Weber', 'Manuel Schneider', 'Christian Boltz' ),
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:SelectCategory',
 	'descriptionmsg' => 'selectcategory-desc',
 );
 
 $dir = dirname(__FILE__) . '/';
+$wgMessagesDirs['SelectCategory'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['SelectCategory'] = $dir . 'SelectCategory.i18n.php';
 
 $wgAutoloadClasses['SelectCategory'] = $dir . 'SelectCategory_body.php';

@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": [
+            "Leon Weber <leon.weber@leonweber.de>",
+            "Manuel Schneider <manuel.schneider@wikimedia.ch>"
+        ]
+    },
+    "selectcategory-title": "Select categories",
+    "selectcategory-desc": "Allows the user to select from existing categories when editing a page",
+    "selectcategory-subtitle": "Shift-mouse to select multiple contiguous entries, Ctrl-mouse to select non-contiguous entries."
+}

@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "Siebrand"
+        ]
+    },
+    "selectcategory-title": "Selecteer categorieën",
+    "selectcategory-desc": "Stelt gebruikers in staat uit bestaande categorieën te kiezen bij het bewerken van een pagina",
+    "selectcategory-subtitle": "Shiftklik om meerdere opeenvolgende categorieën te selecteren, Ctrlklik om niet-openvolgende categorieën te selecteren."
+}

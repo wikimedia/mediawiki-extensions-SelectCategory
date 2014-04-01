@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": [
+            "Leithian",
+            "Manuel Schneider <manuel.schneider@wikimedia.ch>"
+        ]
+    },
+    "selectcategory-title": "Kategorien auswählen",
+    "selectcategory-desc": "Ermöglicht es dem Benutzer, beim Bearbeiten einer Seite aus bestehenden Kategorien auszuwählen",
+    "selectcategory-subtitle": "Shift-Maus um mehrere nachfolgende Einträge zu (de-)selektieren, Strg-Maus um einzelne Einträge zu (de-)selektieren."
+}

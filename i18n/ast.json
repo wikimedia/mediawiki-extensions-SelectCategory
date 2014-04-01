@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "Esbardu"
+        ]
+    },
+    "selectcategory-title": "Selecionar categoríes",
+    "selectcategory-desc": "Permite al usuariu seleicionar categoríes esistentes al editar una páxina",
+    "selectcategory-subtitle": "Caltén pulsada la tecla de mayúscules pa seleicionar entraes múltiples contigües, o la tecla CTRL pa seleicionar entraes non contigües."
+}

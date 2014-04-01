@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "McDutchie"
+        ]
+    },
+    "selectcategory-title": "Seliger categorias",
+    "selectcategory-desc": "Permitte que le usator selige inter categorias existente quando modifica un pagina",
+    "selectcategory-subtitle": "Clicca tenente premite le clave SHIFT pro seliger plure entratas adjacente, o CTRL pro seliger entratas non adjacente."
+}

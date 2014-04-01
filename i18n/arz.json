@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "Meno25"
+        ]
+    },
+    "selectcategory-title": "اختر التصنيفات",
+    "selectcategory-desc": "يسمح للمستخدم بالاختيار من التصنيفات الموجودة عند تعديل صفحة",
+    "selectcategory-subtitle": "Shift-mouse لاختيار مدخلات متوافقة متعددة، Ctrl-mouse لاختيار مدخلات غير متوافقة."
+}
