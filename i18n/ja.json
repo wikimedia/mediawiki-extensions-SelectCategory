@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Mizusumashi"
-        ]
-    },
-    "selectcategory-title": "カテゴリ選択",
-    "selectcategory-desc": "利用者が、ページの編集時に、既存のカテゴリから選択できるようにする",
-    "selectcategory-subtitle": "Shift+マウスクリックで隣接する複数のエントリを選択でき、Ctrl+マウスクリックで隣接していないエントリを選択できます。"
+	"@metadata": {
+		"authors": [
+			"Mizusumashi"
+		]
+	},
+	"selectcategory-title": "カテゴリ選択",
+	"selectcategory-desc": "利用者が、ページの編集時に、既存のカテゴリから選択できるようにする",
+	"selectcategory-subtitle": "Shift+マウスクリックで隣接する複数のエントリを選択でき、Ctrl+マウスクリックで隣接していないエントリを選択できます。"
 }

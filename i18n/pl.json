@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Derbeth",
-            "Leinad"
-        ]
-    },
-    "selectcategory-title": "Wybór kategorii",
-    "selectcategory-desc": "Pozwala użytkownikowi podczas edytowania strony wybrać istniejącą kategorię",
-    "selectcategory-subtitle": "Shift+przycisk myszy wybiera wiele sąsiednich elementów, Ctrl+przycisk myszy wybiera elementy, które nie są koło siebie"
+	"@metadata": {
+		"authors": [
+			"Derbeth",
+			"Leinad"
+		]
+	},
+	"selectcategory-title": "Wybór kategorii",
+	"selectcategory-desc": "Pozwala użytkownikowi podczas edytowania strony wybrać istniejącą kategorię",
+	"selectcategory-subtitle": "Shift+przycisk myszy wybiera wiele sąsiednich elementów, Ctrl+przycisk myszy wybiera elementy, które nie są koło siebie"
 }

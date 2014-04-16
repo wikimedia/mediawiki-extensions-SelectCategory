@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Vito Genovese"
-        ]
-    },
-    "selectcategory-title": "Kategorileri seç",
-    "selectcategory-desc": "Bir sayfada değişiklik yaparken kullanıcının mevcut kategorilerden seçim yapmasını sağlar",
-    "selectcategory-subtitle": "Birden fazla bitiş girdi seçmek için Shift-fare, bitişik olmayan girdileri seçmek için Ctrl-fare kombinasyonunu kullanın."
+	"@metadata": {
+		"authors": [
+			"Vito Genovese"
+		]
+	},
+	"selectcategory-title": "Kategorileri seç",
+	"selectcategory-desc": "Bir sayfada değişiklik yaparken kullanıcının mevcut kategorilerden seçim yapmasını sağlar",
+	"selectcategory-subtitle": "Birden fazla bitiş girdi seçmek için Shift-fare, bitişik olmayan girdileri seçmek için Ctrl-fare kombinasyonunu kullanın."
 }

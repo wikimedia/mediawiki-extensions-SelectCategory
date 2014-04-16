@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Jaakonam",
-            "Nike"
-        ]
-    },
-    "selectcategory-title": "Valitse luokat",
-    "selectcategory-desc": "Käyttäjä voi muokatessaan valita jo olemassa olevista luokista sopivan",
-    "selectcategory-subtitle": "Painamalla yhtä aikaa Shift-näppäintä ja hiiren vasenta painiketta voi valikosta poimia useita peräkkäisiä vaihtoehtoja. Ctrl-näppäintä ja hiiren vasenta painiketta yhtä aikaa painamalla voi valita haluamansa vaihtoehdot yksitellen."
+	"@metadata": {
+		"authors": [
+			"Jaakonam",
+			"Nike"
+		]
+	},
+	"selectcategory-title": "Valitse luokat",
+	"selectcategory-desc": "Käyttäjä voi muokatessaan valita jo olemassa olevista luokista sopivan",
+	"selectcategory-subtitle": "Painamalla yhtä aikaa Shift-näppäintä ja hiiren vasenta painiketta voi valikosta poimia useita peräkkäisiä vaihtoehtoja. Ctrl-näppäintä ja hiiren vasenta painiketta yhtä aikaa painamalla voi valita haluamansa vaihtoehdot yksitellen."
 }

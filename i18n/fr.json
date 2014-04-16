@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Jean-Frédéric",
-            "Marius Engler <marius.engler@coop.ch>",
-            "Sherbrooke"
-        ]
-    },
-    "selectcategory-title": "Choix de catégories",
-    "selectcategory-desc": "Permet à l’utilisateur de sélectionner des catégories existantes lors de l’édition d’une page",
-    "selectcategory-subtitle": "Maj+clic afin de (dé)sélectionner plusieurs catégories d’affilée, Ctrl+clic afin de (dé)sélectionner des catégories individuellement."
+	"@metadata": {
+		"authors": [
+			"Jean-Frédéric",
+			"Marius Engler <marius.engler@coop.ch>",
+			"Sherbrooke"
+		]
+	},
+	"selectcategory-title": "Choix de catégories",
+	"selectcategory-desc": "Permet à l’utilisateur de sélectionner des catégories existantes lors de l’édition d’une page",
+	"selectcategory-subtitle": "Maj+clic afin de (dé)sélectionner plusieurs catégories d’affilée, Ctrl+clic afin de (dé)sélectionner des catégories individuellement."
 }

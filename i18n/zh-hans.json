@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Gaoxuewei",
-            "Shinjiman"
-        ]
-    },
-    "selectcategory-title": "选择分类",
-    "selectcategory-desc": "允许用户编辑页面时，自列表选择页面分类。",
-    "selectcategory-subtitle": "按着Shift键再以鼠标选取连续的项目，按着Ctrl键再以鼠标选取非连续的项目。"
+	"@metadata": {
+		"authors": [
+			"Gaoxuewei",
+			"Shinjiman"
+		]
+	},
+	"selectcategory-title": "选择分类",
+	"selectcategory-desc": "允许用户编辑页面时，自列表选择页面分类。",
+	"selectcategory-subtitle": "按着Shift键再以鼠标选取连续的项目，按着Ctrl键再以鼠标选取非连续的项目。"
 }

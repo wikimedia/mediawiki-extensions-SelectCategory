@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "EugeneZelenko",
-            "Jim-by"
-        ]
-    },
-    "selectcategory-title": "Выбар катэгорый",
-    "selectcategory-desc": "Дазваляе ўдзельніку выбіраць з існуючых катэгорый пад час рэдагаваньня старонкі",
-    "selectcategory-subtitle": "Shift+клік мышкі выбірае некалькі суседніх элемэнтаў, Ctrl+клік мышкі выбірае элемэнты, якія знаходзяцца ня побач."
+	"@metadata": {
+		"authors": [
+			"EugeneZelenko",
+			"Jim-by"
+		]
+	},
+	"selectcategory-title": "Выбар катэгорый",
+	"selectcategory-desc": "Дазваляе ўдзельніку выбіраць з існуючых катэгорый пад час рэдагаваньня старонкі",
+	"selectcategory-subtitle": "Shift+клік мышкі выбірае некалькі суседніх элемэнтаў, Ctrl+клік мышкі выбірае элемэнты, якія знаходзяцца ня побач."
 }

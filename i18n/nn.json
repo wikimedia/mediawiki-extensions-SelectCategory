@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": [
-            "Harald Khan",
-            "Njardarlogar"
-        ]
-    },
-    "selectcategory-title": "Vel kategoriar",
-    "selectcategory-desc": "Lét brukaren velja frå eksisterande kategoriar når han/ho endrar ei sida.",
-    "selectcategory-subtitle": "Shift+klikk for å velja fleire samahengande val, Ctrl+klikk for å velja ikkje-samanhengande val."
+	"@metadata": {
+		"authors": [
+			"Harald Khan",
+			"Njardarlogar"
+		]
+	},
+	"selectcategory-title": "Vel kategoriar",
+	"selectcategory-desc": "Lét brukaren velja frå eksisterande kategoriar når han/ho endrar ei sida.",
+	"selectcategory-subtitle": "Shift+klikk for å velja fleire samahengande val, Ctrl+klikk for å velja ikkje-samanhengande val."
 }

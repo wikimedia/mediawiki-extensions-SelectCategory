@@ -1,9 +1,9 @@
 {
-    "@metadata": {
-        "authors": [
-            "Yekrats"
-        ]
-    },
-    "selectcategory-title": "Elektu kategoriojn",
-    "selectcategory-desc": "Permesas al la uzanto selekti de ekzistantaj kategorioj kiam redaktante paĝojn"
+	"@metadata": {
+		"authors": [
+			"Yekrats"
+		]
+	},
+	"selectcategory-title": "Elektu kategoriojn",
+	"selectcategory-desc": "Permesas al la uzanto selekti de ekzistantaj kategorioj kiam redaktante paĝojn"
 }

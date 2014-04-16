@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "AnakngAraw"
-        ]
-    },
-    "selectcategory-title": "Pumili ng mga kaurian",
-    "selectcategory-desc": "Nagpapahintulot sa tagagamit na makapili mula sa umiiral na mga kaurian habang nagbabago ng isang pahina",
-    "selectcategory-subtitle": "Gamitin ang ''Shift-mouse'' upang mapili ang sunud-sunod/magkakadikit na mga entrada (mga ipapasok/ilalagay), gamitin ang ''Ctrl-mouse'' upang mapili naman ang hindi magkakasunod/magkakadikit na mga entrada."
+	"@metadata": {
+		"authors": [
+			"AnakngAraw"
+		]
+	},
+	"selectcategory-title": "Pumili ng mga kaurian",
+	"selectcategory-desc": "Nagpapahintulot sa tagagamit na makapili mula sa umiiral na mga kaurian habang nagbabago ng isang pahina",
+	"selectcategory-subtitle": "Gamitin ang ''Shift-mouse'' upang mapili ang sunud-sunod/magkakadikit na mga entrada (mga ipapasok/ilalagay), gamitin ang ''Ctrl-mouse'' upang mapili naman ang hindi magkakasunod/magkakadikit na mga entrada."
 }

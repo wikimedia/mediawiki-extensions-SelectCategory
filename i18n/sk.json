@@ -1,10 +1,10 @@
 {
-    "@metadata": {
-        "authors": [
-            "Helix84"
-        ]
-    },
-    "selectcategory-title": "Vybrať kategórie",
-    "selectcategory-desc": "Umožňuje používateľovi vybrať z existujúcich kategórií pri úprave stránky",
-    "selectcategory-subtitle": "Shift+kliknutie označí súvislú skupinu položiek, ctrl+kliknutie označí jednotlivé nesúvislé položky."
+	"@metadata": {
+		"authors": [
+			"Helix84"
+		]
+	},
+	"selectcategory-title": "Vybrať kategórie",
+	"selectcategory-desc": "Umožňuje používateľovi vybrať z existujúcich kategórií pri úprave stránky",
+	"selectcategory-subtitle": "Shift+kliknutie označí súvislú skupinu položiek, ctrl+kliknutie označí jednotlivé nesúvislé položky."
 }
