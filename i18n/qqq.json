@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Purodha",
-			"Shirayuki"
+			"Shirayuki",
+			"Umherirrender"
 		]
 	},
 	"selectcategory-title": "This message is followed by a list of the categories.\n{{Identical|Select category}}",
-	"selectcategory-desc": "{{desc|name=Select Category|url=http://www.mediawiki.org/wiki/Extension:SelectCategory}}",
+	"selectcategory-desc": "{{desc|name=Select Category|url=https://www.mediawiki.org/wiki/Extension:SelectCategory}}",
 	"selectcategory-subtitle": "Unused at this time."
 }
