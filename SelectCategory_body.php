@@ -49,7 +49,7 @@ class SelectCategory {
 				# the <form> so we will never get contents
 				$place = 'editFormTextAfterWarn';
 				# Print the localised title for the select box
-				$textBefore = '<b>'. wfMsg( 'selectcategory-title' ) . '</b>:';
+				$textBefore = '<b>'. wfMessage( 'selectcategory-title' )->escaped() . '</b>:';
 			} else {
 				# No need to get categories
 				$pageCats = array();
@@ -57,7 +57,7 @@ class SelectCategory {
 				# Place output at the right place
 				$place = 'uploadFormTextAfterSummary';
 				# Print the part of the table including the localised title for the select box
-				$textBefore = "\n</td></tr><tr><td align='right'><label for='wpSelectCategory'>" . wfMsg( 'selectcategory-title' ) .":</label></td><td align='left'>";
+				$textBefore = "\n</td></tr><tr><td align='right'><label for='wpSelectCategory'>" . wfMessage( 'selectcategory-title' )->escaped() .":</label></td><td align='left'>";
 			}
 			# Introduce the output
 			$pageObj->$place .= "<!-- SelectCategory begin -->\n";
