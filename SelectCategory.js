@@ -1,5 +1,5 @@
-$j( document ).ready( function() {
-	$j( "#SelectCategoryList" ).treeview( {
+$( function () {
+	$( "#SelectCategoryList" ).treeview( {
 		collapsed: true
-	});
+	} );
 } );
