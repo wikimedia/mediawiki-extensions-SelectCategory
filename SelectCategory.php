@@ -92,3 +92,20 @@ $wgHooks['UploadForm:initial'][] = array( 'SelectCategory::showHook', true );
 $wgHooks['EditPage::attemptSave'][] = array( 'SelectCategory::saveHook', false );
 # Hook when saving the upload
 $wgHooks['UploadForm:BeforeProcessing'][] = array( 'SelectCategory::saveHook', true );
+
+$wgResourceModules['ext.SelectCategory'] = array(
+	'position' => 'top',
+	'scripts' => 'SelectCategory.js',
+	'styles' => 'SelectCategory.css',
+	'dependencies' => 'ext.SelectCategory.treeview',
+	'localBasePath' => __DIR__,
+	'remoteExtPath' => 'SelectCategory'
+);
+
+$wgResourceModules['ext.SelectCategory.treeview'] = array(
+	'position' => 'top',
+	'scripts' => 'jquery.treeview.js',
+	'styles' => 'jquery.treeview.css',
+	'localBasePath' => __DIR__,
+	'remoteExtPath' => 'SelectCategory'
+);

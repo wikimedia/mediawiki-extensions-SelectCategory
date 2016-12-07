@@ -31,10 +31,7 @@ class SelectCategory {
 			global $wgSelectCategoryMaxLevel;
 			global $wgSelectCategoryToplevelAllowed;
 
-			$wgOut->addExtensionStyle( "{$wgExtensionAssetsPath}/SelectCategory/SelectCategory.css" );
-			$wgOut->addExtensionStyle( "{$wgExtensionAssetsPath}/SelectCategory/jquery.treeview.css" );
-			$wgOut->addScriptFile( "{$wgExtensionAssetsPath}/SelectCategory/jquery.treeview.js" );
-			$wgOut->addScriptFile( "{$wgExtensionAssetsPath}/SelectCategory/SelectCategory.js" );
+			$wgOut->addModules( 'ext.SelectCategory' );
 
 			# Get all categories from wiki
 			$allCats = self::getAllCategories( $isUpload ? NS_FILE : $pageObj->mTitle->getNamespace() );
