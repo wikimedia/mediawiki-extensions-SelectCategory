@@ -37,7 +37,7 @@ class SelectCategory {
 			$wgOut->addScriptFile( "{$wgExtensionAssetsPath}/SelectCategory/SelectCategory.js" );
 
 			# Get all categories from wiki
-			$allCats = self::getAllCategories( $isUpload ? NS_IMAGE : $pageObj->mTitle->getNamespace() );
+			$allCats = self::getAllCategories( $isUpload ? NS_FILE : $pageObj->mTitle->getNamespace() );
 			# Load system messages
 
 			# Get the right member variables, depending on if we're on an upload form or not
