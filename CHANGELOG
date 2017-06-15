@@ -1,3 +1,9 @@
+*********************************************************************************
+***                                                                           ***
+***   sorry, this file isn't maintained anymore - see 'git log' for changes   ***
+***                                                                           ***
+*********************************************************************************
+
 Changes since the last release:
   - [Bug 23106] fix $wgSelectCategoryEnableSubpages
   - [Bug 24439] Categories are not saved when doing upload of files
