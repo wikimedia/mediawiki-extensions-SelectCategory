@@ -137,21 +137,13 @@ class SelectCategory {
 			# Get localised namespace string
 			$catString = $wgContLang->getNsText( NS_CATEGORY );
 
-			# default sort key is page name with stripped namespace name,
-			# otherwise sorting is ugly.
-			if( !$isUpload && $pageObj->mTitle->getNamespace() == NS_MAIN ) {
-				$default_sortkey = "";
-			} else {
-				$default_sortkey = "|{{PAGENAME}}";
-			}
-
 			# Get some distance from the rest of the content
 			$text = "\n";
 
 			# Iterate through all selected category entries
 			if (array_key_exists('SelectCategoryList', $_POST)) {
 				foreach( $_POST['SelectCategoryList'] as $cat ) {
-					$text .= "\n[[$catString:$cat$default_sortkey]]";
+					$text .= "\n[[$catString:$cat]]";
 				}
 			}
 			# If it is an upload we have to call a different method
