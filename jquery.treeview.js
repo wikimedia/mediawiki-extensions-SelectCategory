@@ -1,23 +1,17 @@
 /*
- * Treeview 1.4.1 - jQuery plugin to hide and show branches of a tree
+ * Treeview 1.4.2 - jQuery plugin to hide and show branches of a tree
  *
  * http://bassistance.de/jquery-plugins/jquery-plugin-treeview/
- * http://docs.jquery.com/Plugins/Treeview
  *
- * Copyright (c) 2007 Jörn Zaefferer
- *
- * Dual licensed under the MIT and GPL licenses:
+ * Copyright Jörn Zaefferer
+ * Released under the MIT license:
  *   http://www.opensource.org/licenses/mit-license.php
- *   http://www.gnu.org/licenses/gpl.html
- *
- * Revision: $Id: jquery.treeview.js 5759 2008-07-01 07:50:28Z joern.zaefferer $
- *
  */
 
-;(function($j) {
+;(function($) {
 
 	// TODO rewrite as a widget, removing all the extra plugins
-	$j.extend($j.fn, {
+	$.extend($.fn, {
 		swapClass: function(c1, c2) {
 			var c1Elements = this.filter('.' + c1);
 			this.filter('.' + c2).removeClass(c2).addClass(c1);
@@ -30,9 +24,9 @@
 		hoverClass: function(className) {
 			className = className || "hover";
 			return this.hover(function() {
-				$j(this).addClass(className);
+				$(this).addClass(className);
 			}, function() {
-				$j(this).removeClass(className);
+				$(this).removeClass(className);
 			});
 		},
 		heightToggle: function(animated, callback) {
@@ -68,8 +62,8 @@
 			this.filter(":has(>ul):not(:has(>a))").find(">span").unbind("click.treeview").bind("click.treeview", function(event) {
 				// don't handle click events on children, eg. checkboxes
 				if ( this == event.target )
-					toggler.apply($j(this).next());
-			}).add( $j("a", this) ).hoverClass();
+					toggler.apply($(this).next());
+			}).add( $("a", this) ).hoverClass();
 
 			if (!settings.prerendered) {
 				// handle closed ones first
@@ -88,10 +82,10 @@
 					hitarea = this.prepend("<div class=\"" + CLASSES.hitarea + "\"/>").find("div." + CLASSES.hitarea);
 				hitarea.removeClass().addClass(CLASSES.hitarea).each(function() {
 					var classes = "";
-					$j.each($j(this).parent().attr("class").split(" "), function() {
+					$.each($(this).parent().attr("class").split(" "), function() {
 						classes += this + "-hitarea ";
 					});
-					$j(this).addClass( classes );
+					$(this).addClass( classes );
 				})
 			}
 
@@ -100,14 +94,14 @@
 		},
 		treeview: function(settings) {
 
-			settings = $j.extend({
+			settings = $.extend({
 				cookieId: "treeview"
 			}, settings);
 
 			if ( settings.toggle ) {
 				var callback = settings.toggle;
 				settings.toggle = function() {
-					return callback.apply($j(this).parent()[0], arguments);
+					return callback.apply($(this).parent()[0], arguments);
 				};
 			}
 
@@ -118,24 +112,24 @@
 					return function() {
 						// reuse toggle event handler, applying the elements to toggle
 						// start searching for all hitareas
-						toggler.apply( $j("div." + CLASSES.hitarea, tree).filter(function() {
+						toggler.apply( $("div." + CLASSES.hitarea, tree).filter(function() {
 							// for plain toggle, no filter is provided, otherwise we need to check the parent element
-							return filter ? $j(this).parent("." + filter).length : true;
+							return filter ? $(this).parent("." + filter).length : true;
 						}) );
 						return false;
 					};
 				}
 				// click on first element to collapse tree
-				$j("a:eq(0)", control).click( handler(CLASSES.collapsable) );
+				$("a:eq(0)", control).click( handler(CLASSES.collapsable) );
 				// click on second to expand tree
-				$j("a:eq(1)", control).click( handler(CLASSES.expandable) );
+				$("a:eq(1)", control).click( handler(CLASSES.expandable) );
 				// click on third to toggle tree
-				$j("a:eq(2)", control).click( handler() );
+				$("a:eq(2)", control).click( handler() );
 			}
 
 			// handle toggle event
 			function toggler() {
-				$j(this)
+				$(this)
 					.parent()
 					// swap classes for hitarea
 					.find(">.hitarea")
@@ -150,7 +144,7 @@
 					// toggle them
 					.heightToggle( settings.animated, settings.toggle );
 				if ( settings.unique ) {
-					$j(this).parent()
+					$(this).parent()
 						.siblings()
 						// swap classes for hitarea
 						.find(">.hitarea")
@@ -171,17 +165,17 @@
 				}
 				var data = [];
 				branches.each(function(i, e) {
-					data[i] = $j(e).is(":has(>ul:visible)") ? 1 : 0;
+					data[i] = $(e).is(":has(>ul:visible)") ? 1 : 0;
 				});
-				$j.cookie(settings.cookieId, data.join(""), settings.cookieOptions );
+				$.cookie(settings.cookieId, data.join(""), settings.cookieOptions );
 			}
 
 			function deserialize() {
-				var stored = $j.cookie(settings.cookieId);
+				var stored = $.cookie(settings.cookieId);
 				if ( stored ) {
 					var data = stored.split("");
 					branches.each(function(i, e) {
-						$j(e).find(">ul")[ parseInt(data[i]) ? "show" : "hide" ]();
+						$(e).find(">ul")[ parseInt(data[i]) ? "show" : "hide" ]();
 					});
 				}
 			}
@@ -205,7 +199,7 @@
 				break;
 			case "location":
 				var current = this.find("a").filter(function() {
-					return this.href.toLowerCase() == location.href.toLowerCase();
+					return location.href.toLowerCase().indexOf(this.href.toLowerCase()) == 0;
 				});
 				if ( current.length ) {
 					// TODO update the open/closed classes
@@ -228,7 +222,7 @@
 			// if control option is set, create the treecontroller and show it
 			if ( settings.control ) {
 				treeController(this, settings.control);
-				$j(settings.control).show();
+				$(settings.control).show();
 			}
 
 			return this;
@@ -237,8 +231,8 @@
 
 	// classes used by the plugin
 	// need to be styled via external stylesheet, see first example
-	$j.treeview = {};
-	var CLASSES = ($j.treeview.classes = {
+	$.treeview = {};
+	var CLASSES = ($.treeview.classes = {
 		open: "open",
 		closed: "closed",
 		expandable: "expandable",
