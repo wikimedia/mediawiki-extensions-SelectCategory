@@ -77,7 +77,6 @@ $wgExtensionCredits['parserhook'][] = array(
 
 $dir = dirname(__FILE__) . '/';
 $wgMessagesDirs['SelectCategory'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['SelectCategory'] = $dir . 'SelectCategory.i18n.php';
 
 $wgAutoloadClasses['SelectCategory'] = $dir . 'SelectCategory_body.php';
 
