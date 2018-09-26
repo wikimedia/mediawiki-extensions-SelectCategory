@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Saederup92"
+		]
+	},
+	"selectcategory-title": "Vælg kategorier",
+	"selectcategory-desc": "Lader brugeren vælge fra eksisterende kategorier når vedkommende redigerer en side"
+}
