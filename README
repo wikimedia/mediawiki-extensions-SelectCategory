@@ -10,7 +10,7 @@ The SelectCategory extensions provides three functions:
 - It shows a list of all categories (unless a custom root category is con-
   figured) in their hierarchical structure on the edit page.
 
-- It strips all categories linked within a page upon editing and selects 
+- It strips all categories linked within a page upon editing and selects
   them in the category list list.
 
 - It adds selected categories from the list to the text body of the page
@@ -63,7 +63,7 @@ $wgSelectCategoryRoot
   this root will be displayed when editing a page in a certain namespace.
   Useful on big wiki sites to keep the database load down.
   If not set (default) the extension searches for all root categories and
-  displays them including all children. 
+  displays them including all children.
  - Example
   $wgSelectCategoryRoot = array(
        NS_MEDIA                => false,
@@ -111,9 +111,9 @@ BUGS, CONTACT
 For bug reports or feature requests file a bug on bugzilla.wikimedia.org
 under the product "MediaWiki extensions" and its component "SelectCategory".
 
-Alternatively you can reach us on 
+Alternatively you can reach us on
 - Leon Weber:       <leon@leonweber.de>
 - Manuel Schneider: <manuel.schneider@wikimedia.ch>
 
 The download and description page of this extension can be found at:
-http://www.mediawiki.org/wiki/Extension:SelectCategory
+https://www.mediawiki.org/wiki/Extension:SelectCategory

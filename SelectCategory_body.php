@@ -149,7 +149,7 @@ class SelectCategory {
 			# If it is an upload we have to call a different method
 			if ( $isUpload ) {
 				# mUploadDescription has been renamed to mComment (not sure in which version,
-				# http://www.mediawiki.org/wiki/Extension_talk:SelectCategoryTagCloud says it happened in 1.13 alpha or before, but I didn't confirm that).
+				# https://www.mediawiki.org/wiki/Extension_talk:SelectCategoryTagCloud says it happened in 1.13 alpha or before, but I didn't confirm that).
 				# mUploadDescription is kept for backwards compability.
 				$pageObj->mUploadDescription .= $text;
 				$pageObj->mComment .= $text;
