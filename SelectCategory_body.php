@@ -13,12 +13,6 @@
  * @licence GNU General Public Licence 2.0 or later
  */
 
-if( !defined( 'MEDIAWIKI' ) ) {
-	echo( "This file is an extension to the MediaWiki software and cannot be used standalone.\n" );
-	die();
-}
-
-
 class SelectCategory {
 
 	## Entry point for the hook and main function for editing the page
