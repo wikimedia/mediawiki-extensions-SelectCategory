@@ -181,7 +181,7 @@ class SelectCategory {
 			$tblPage = $dbObj->tableName( 'page' );
 
 			# Automagically detect root categories
-			$sql = "  SELECT tmpSelectCat1.cl_to AS title
+			$sql = "SELECT tmpSelectCat1.cl_to AS title
 FROM $tblCatLink AS tmpSelectCat1
 LEFT JOIN $tblPage AS tmpSelectCatPage ON (tmpSelectCat1.cl_to = tmpSelectCatPage.page_title AND tmpSelectCatPage.page_namespace = 14)
 LEFT JOIN $tblCatLink AS tmpSelectCat2 ON tmpSelectCatPage.page_id = tmpSelectCat2.cl_from
