@@ -13,6 +13,8 @@
  * @licence GNU General Public Licence 2.0 or later
  */
 
+use MediaWiki\MediaWikiServices;
+
 class SelectCategory {
 
 	## Entry point for the hook and main function for editing the page
@@ -123,13 +125,11 @@ class SelectCategory {
 
 	## Entry point for the hook and main function for saving the page
 	public static function saveHook( $isUpload, $pageObj ) {
-		global $wgContLang;
-
 		# check if we should do anything or sleep
 		if ( self::checkConditions( $isUpload, $pageObj ) ) {
 
 			# Get localised namespace string
-			$catString = $wgContLang->getNsText( NS_CATEGORY );
+			$catString = MediaWikiServices::getInstance()->getContentLanguage()->getNsText( NS_CATEGORY );
 
 			# Get some distance from the rest of the content
 			$text = "\n";
@@ -252,12 +252,10 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 			return $catLinks;
 		}
 
-		global $wgContLang;
-
 		# Get page contents
 		$pageText = $pageObj->textbox1;
 		# Get localised namespace string
-		$catString = strtolower( $wgContLang->getNsText( NS_CATEGORY ) );
+		$catString = strtolower( MediaWikiServices::getInstance()->getContentLanguage()->getNsText( NS_CATEGORY ) );
 		# The regular expression to find the category links
 		$pattern = "\[\[({$catString}|category):([^\|\]]*)(\|{{PAGENAME}}|)\]\]";
 		$replace = "$2";
