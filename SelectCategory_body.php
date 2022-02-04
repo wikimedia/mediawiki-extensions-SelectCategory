@@ -189,12 +189,10 @@ WHERE tmpSelectCat2.cl_from IS NULL GROUP BY tmpSelectCat1.cl_to";
 			# Run the query
 			$res = $dbObj->query( $sql, __METHOD__ );
 			# Process the resulting rows
-			while ( $row = $dbObj->fetchRow( $res ) ) {
-				$allCats += array( $row['title'] => 0 );
-				$allCats += self::getChildren( $row['title'] );
+			foreach ( $res as $row ) {
+				$allCats += array( $row->title => 0 );
+				$allCats += self::getChildren( $row->title );
 			}
-			# Free result
-			$dbObj->freeResult( $res );
 		}
 
 		# Afterwards return the array to the caller
@@ -222,17 +220,15 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 		# Run the query
 		$res = $dbObj->query( $sql, __METHOD__ );
 		# Process the resulting rows
-		while ( $row = $dbObj->fetchRow( $res ) ) {
+		foreach ( $res as $row ) {
 			# Survive category link loops
-			if( $root == $row['title'] ) {
+			if( $root == $row->title ) {
 				continue;
 			}
 			# Add current entry to array
-			$allCats += array( $row['title'] => $depth );
-			$allCats += self::getChildren( $row['title'], $depth + 1 );
+			$allCats += array( $row->title => $depth );
+			$allCats += self::getChildren( $row->title, $depth + 1 );
 		}
-		# Free result
-		$dbObj->freeResult( $res );
 
 		# Afterwards return the array to the upper recursion level
 		return $allCats;
