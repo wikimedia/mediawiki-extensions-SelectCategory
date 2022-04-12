@@ -3,10 +3,11 @@
 		"authors": [
 			"Jean-Frédéric",
 			"Marius Engler <marius.engler@coop.ch>",
-			"Sherbrooke"
+			"Sherbrooke",
+			"Verdy p"
 		]
 	},
 	"selectcategory-title": "Choix de catégories",
 	"selectcategory-desc": "Permet à l’utilisateur de sélectionner des catégories existantes lors de l’édition d’une page",
-	"selectcategory-subtitle": "Maj+clic afin de (dé)sélectionner plusieurs catégories d’affilée, Ctrl+clic afin de (dé)sélectionner des catégories individuellement."
+	"selectcategory-subtitle": "Maj + Clic pour étendre la sélection à plusieurs catégories contiguës, Ctrl + Clic pour (dé)sélectionner des catégories individuelles."
 }
