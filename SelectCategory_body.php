@@ -62,6 +62,9 @@ class SelectCategory {
 			$olddepth = -1;
 			$pageObj->$place .= '<ul id="SelectCategoryList">';
 
+			# LinkRenderer object
+			$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+
 			foreach( $allCats as $cat => $depth ) {
 				$checked = '';
 
@@ -103,7 +106,7 @@ class SelectCategory {
 				if ($level > 0 || $wgSelectCategoryToplevelAllowed) {
 					$pageObj->$place .= '<input type="checkbox" name="SelectCategoryList[]" value="'.$category.'" class="checkbox" '.$checked.' />';
 				}
-				$pageObj->$place .=	Linker::link( $title, $catName )."\n";
+				$pageObj->$place .= $linkRenderer->makeLink( $title, $catName ) . "\n";
 				# set id for next level
 				$level_id = 'sc_'.$cat;
 
