@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"selectcategory-title": "Izberite kategorije",
+	"selectcategory-desc": "Uporabniku omogoča izbiro obstoječih kategorij pri urejanju strani",
+	"selectcategory-subtitle": "Dvigalka + klik za izbiro več zaporednih vnosov, Ctrl + klik za izbiro posameznih vnosov"
+}
