@@ -18,7 +18,7 @@ use MediaWiki\MediaWikiServices;
 class SelectCategory {
 
 	## Entry point for the hook and main function for editing the page
-	public static function showHook( $isUpload = false, $pageObj ) {
+	public static function showHook( $isUpload, $pageObj ) {
 
 		# check if we should do anything or sleep
 		if ( self::checkConditions( $isUpload, $pageObj ) ) {
