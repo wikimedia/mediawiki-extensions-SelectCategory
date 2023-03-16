@@ -30,7 +30,7 @@ class SelectCategory {
 			$wgOut->addModules( 'ext.SelectCategory' );
 
 			# Get all categories from wiki
-			$allCats = self::getAllCategories( $isUpload ? NS_FILE : $pageObj->mTitle->getNamespace() );
+			$allCats = self::getAllCategories( $isUpload ? NS_FILE : $pageObj->getTitle()->getNamespace() );
 			# Load system messages
 
 			# Get the right member variables, depending on if we're on an upload form or not
@@ -293,7 +293,7 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 			return true;
 		}
 
-		$ns = $pageObj->mTitle->getNamespace();
+		$ns = $pageObj->getTitle()->getNamespace();
 		if( array_key_exists( $ns, $wgSelectCategoryNamespaces ) ) {
 			$enabledForNamespace = $wgSelectCategoryNamespaces[$ns];
 		} else {
@@ -301,7 +301,7 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 		}
 
 		# Check if page is subpage once to save method calls below
-		$isSubpage = $pageObj->mTitle->isSubpage();
+		$isSubpage = $pageObj->getTitle()->isSubpage();
 
 		if ($enabledForNamespace
 			&& (!$isSubpage
