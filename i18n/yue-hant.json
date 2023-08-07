@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Winston Sung"
+		]
+	},
+	"selectcategory-title": "揀分類",
+	"selectcategory-desc": "容許用戶改頁面時去揀已經喺度嘅類",
+	"selectcategory-subtitle": "撳住Shift掣再用個mouse去揀連續嘅項目，撳住Ctrl掣再用個mouse去揀非連續嘅項目。"
+}
