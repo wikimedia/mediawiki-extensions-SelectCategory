@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nokeoo"
+		]
+	},
+	"selectcategory-title": "Pasirinkite kategorijas",
+	"selectcategory-desc": "Leidžia naudotojui redaguojant puslapį pasirinkti iš esamų kategorijų",
+	"selectcategory-subtitle": "Laikykite Shift ir spauskite pele, kad pasirinktumėte kelis paeiliui einančius įrašus, o laikant Crtl ir spaudžiant pele pasirinksite kelis ne paeiliui einančius įrašus."
+}
