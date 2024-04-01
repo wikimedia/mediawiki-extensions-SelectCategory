@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tofighi"
+			"Tofighi",
+			"Ebraminio"
 		]
 	},
 	"selectcategory-title": "انتخاب رده‌ها",
 	"selectcategory-desc": "به کاربر امکان انتخاب از رده‌های موجود را در هنگام ویرایش صفحه می‌دهد",
-	"selectcategory-subtitle": "از Shift-mouse برای انتخاب چند مدخل مجاور استفاده کنید،Ctrl-mouse را برای مدخل های غیر مجاور به کار برید."
+	"selectcategory-subtitle": "از Shift-mouse برای انتخاب چند مدخل مجاور استفاده کنید،Ctrl-mouse را برای مدخل‌های غیر مجاور به کار برید."
 }
