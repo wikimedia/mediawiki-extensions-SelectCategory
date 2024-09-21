@@ -178,7 +178,7 @@ class SelectCategory {
 			$allCats = array();
 
 			# Get a database object
-			$dbObj = wfGetDB( DB_REPLICA );
+			$dbObj = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 			# Get table names to access them in SQL query
 			$tblCatLink = $dbObj->tableName( 'categorylinks' );
 			$tblPage = $dbObj->tableName( 'page' );
@@ -207,7 +207,7 @@ WHERE tmpSelectCat2.cl_from IS NULL GROUP BY tmpSelectCat1.cl_to";
 		$allCats = array();
 
 		# Get a database object
-		$dbObj = wfGetDB( DB_REPLICA );
+		$dbObj = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		# Get table names to access them in SQL query
 		$tblCatLink = $dbObj->tableName( 'categorylinks' );
 		$tblPage = $dbObj->tableName( 'page' );
