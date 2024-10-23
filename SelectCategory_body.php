@@ -7,9 +7,10 @@
  *
  * @file
  * @ingroup Extensions
- * @author Leon Weber <leon@leonweber.de> & Manuel Schneider <manuel.schneider@wikimedia.ch> & Christian Boltz <mediawiki+SelectCategory@cboltz.de>
+ * @author Leon Weber <leon@leonweber.de> & Manuel Schneider <manuel.schneider@wikimedia.ch> & Christian Boltz <mediawiki+SelectCategory@cboltz.de> & Daniel Centore <Daniel.Centore@gmail.com>
  * @copyright © 2006 by Leon Weber & Manuel Schneider
  * @copyright © 2013 by Christian Boltz
+ * @copyright © 2021 by Daniel Centore
  * @licence GNU General Public Licence 2.0 or later
  */
 
@@ -57,12 +58,15 @@ class SelectCategory {
 	public static function showHook( $isUpload, $pageObj ) {
 		# check if we should do anything or sleep
 		if ( self::checkConditions( $isUpload, $pageObj ) ) {
-			# Register CSS file for our select box
 			global $wgOut, $wgExtensionAssetsPath;
 			global $wgSelectCategoryMaxLevel;
 			global $wgSelectCategoryToplevelAllowed;
+			global $wgSelectCategoryChosenMode;
 
-			$wgOut->addModules( 'ext.SelectCategory' );
+			$moduleName = $wgSelectCategoryChosenMode ? 'ext.SelectCategory.chosen' : 'ext.SelectCategory';
+			# Output the necessary CSS and JS
+			# @todo FIXME: the CSS should probably be split up to a separate module from the JS
+			$wgOut->addModules( $moduleName );
 
 			# Get all categories from wiki
 			$allCats = self::getAllCategories( $isUpload ? NS_FILE : $pageObj->getTitle()->getNamespace() );
@@ -96,17 +100,24 @@ class SelectCategory {
 			# Begin list output, use <div> to enable custom formatting
 			$level = 0;
 			$olddepth = -1;
-			$pageObj->$place .= '<ul id="SelectCategoryList">';
+
+			if ( !$wgSelectCategoryChosenMode ) {
+				$pageObj->$place .= '<ul id="SelectCategoryList">';
+			} else {
+				$pageObj->$place .= '<select data-placeholder="' .
+					wfMessage( 'selectcategory-placeholder' )->escaped() .
+					'" name="SelectCategoryList[]" class="category-select" multiple="multiple" id="SelectCategoryList">';
+			}
 
 			# LinkRenderer object
 			$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
 			foreach ( $allCats as $cat => $depth ) {
-				$checked = '';
+				$checked = false;
 
 				# See if the category was already added, so check it
 				if ( isset( $pageCats[$cat] ) ) {
-					$checked = 'checked="checked"';
+					$checked = true;
 				}
 
 				# Clean HTML Output
@@ -126,16 +137,20 @@ class SelectCategory {
 						$open = " class='open' ";
 					}
 
-					$pageObj->$place .= '<ul style="' . $class . '">' . "\n";
+					if ( !$wgSelectCategoryChosenMode ) {
+						$pageObj->$place .= '<ul style="' . $class . '">' . "\n";
+					}
 					$level++;
 				}
 
-				if ( $depth <= $olddepth ) {
+				if ( $depth <= $olddepth && !$wgSelectCategoryChosenMode ) {
 					$pageObj->$place .= '</li>' . "\n";
 				}
 
 				while ( $level > $depth ) {
-					$pageObj->$place .= '</ul></li>' . "\n";
+					if ( !$wgSelectCategoryChosenMode ) {
+						$pageObj->$place .= '</ul></li>' . "\n";
+					}
 					$level--;
 				}
 
@@ -146,8 +161,12 @@ class SelectCategory {
 				# Output the actual checkboxes, indented
 				$pageObj->$place .= '<li' . $open . '>';
 				if ( $level > 0 || $wgSelectCategoryToplevelAllowed ) {
-					$pageObj->$place .= '<input type="checkbox" name="SelectCategoryList[]" value="' . $category
-						. '" class="checkbox" ' . $checked . ' />';
+					if ( !$wgSelectCategoryChosenMode ) {
+						$pageObj->$place .= '<input type="checkbox" name="SelectCategoryList[]" value="' . $category
+							. '" class="checkbox" ' . ( $checked ?? 'checked=checked' ) . ' />';
+					} else {
+						$pageObj->$place .= '<option value="' . $category . '" ' . ( $checked ?? 'selected' ) . '>' . $catName . '</option>';
+					}
 				}
 
 				$pageObj->$place .= $linkRenderer->makeLink( $title, $catName ) . "\n";
@@ -160,7 +179,11 @@ class SelectCategory {
 
 			# End of list output - close all remaining divs
 			while ( $level > -1 ) {
-				$pageObj->$place .= '</li></ul>' . "\n";
+				if ( !$wgSelectCategoryChosenMode ) {
+					$pageObj->$place .= '</li></ul>' . "\n";
+				} else {
+					$pageObj->$place .= '</li></select><br />' . "\n";
+				}
 				$level--;
 			}
 

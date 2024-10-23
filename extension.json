@@ -1,10 +1,11 @@
 {
 	"name": "SelectCategory",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"author": [
 		"Leon Weber",
 		"Manuel Schneider",
-		"Christian Boltz"
+		"Christian Boltz",
+		"Daniel Centore"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:SelectCategory",
 	"descriptionmsg": "selectcategory-desc",
@@ -30,6 +31,11 @@
 			"scripts": "SelectCategory.js",
 			"styles": "SelectCategory.css",
 			"dependencies": "ext.SelectCategory.treeview"
+		},
+		"ext.SelectCategory.chosen": {
+			"scripts": "SelectCategoryChosen.js",
+			"styles": "SelectCategory.css",
+			"dependencies": "jquery.chosen"
 		},
 		"ext.SelectCategory.treeview": {
 			"scripts": "jquery.treeview.js",
@@ -97,6 +103,10 @@
 			},
 			"merge_strategy": "array_plus",
 			"description": "Root category to use for which namespace, otherwise self detection (expensive)"
+		},
+		"SelectCategoryChosenMode": {
+			"value": true,
+			"description": "Use Chosen (https://harvesthq.github.io/chosen/) for selection?"
 		},
 		"SelectCategoryEnableSubpages": {
 			"value": true,
