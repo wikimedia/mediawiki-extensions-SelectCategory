@@ -1,0 +1,118 @@
+{
+	"name": "SelectCategory",
+	"version": "1.0.0",
+	"author": [
+		"Leon Weber",
+		"Manuel Schneider",
+		"Christian Boltz"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:SelectCategory",
+	"descriptionmsg": "selectcategory-desc",
+	"license-name": "GPL-2.0-or-later",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
+	"MessagesDirs": {
+		"SelectCategory": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"SelectCategory": "SelectCategory_body.php",
+		"SelectCategoryAPI": "VisualEditor.php"
+	},
+	"APIModules": {
+		"selectcategory": "SelectCategoryAPI"
+	},
+	"ResourceModules": {
+		"ext.SelectCategory": {
+			"scripts": "SelectCategory.js",
+			"styles": "SelectCategory.css",
+			"dependencies": "ext.SelectCategory.treeview"
+		},
+		"ext.SelectCategory.treeview": {
+			"scripts": "jquery.treeview.js",
+			"styles": "jquery.treeview.css"
+		},
+		"ext.SelectCategory.VisualEditor": {
+			"scripts": "VisualEditor.js",
+			"messages": "selectcategory-title"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "SelectCategory"
+	},
+	"Hooks": {
+		"EditPage::showEditForm:initial": "SelectCategory::onEditPage__showEditForm_initial",
+		"UploadForm:initial": "SelectCategory::onUploadForm_initial",
+		"EditPage::attemptSave": "SelectCategory::onEditPage__attemptSave",
+		"UploadForm:BeforeProcessing": "SelectCategory::onUploadForm_BeforeProcessing",
+		"BeforePageDisplay": "SelectCategoryAPI::onBeforePageDisplay"
+	},
+	"config": {
+		"SelectCategoryNamespaces": {
+			"value": {
+				"-2": true,
+				"0": true,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true,
+				"5": false,
+				"6": true,
+				"7": false,
+				"8": false,
+				"9": false,
+				"10": false,
+				"11": false,
+				"12": true,
+				"13": false,
+				"14": true,
+				"15": false
+			},
+			"merge_strategy": "array_plus",
+			"description": "List of namespaces in which this extension should be active."
+		},
+		"SelectCategoryRoot": {
+			"value": {
+				"-2": false,
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false,
+				"5": false,
+				"6": false,
+				"7": false,
+				"8": false,
+				"9": false,
+				"10": false,
+				"11": false,
+				"12": false,
+				"13": false,
+				"14": false,
+				"15": false
+			},
+			"merge_strategy": "array_plus",
+			"description": "Root category to use for which namespace, otherwise self detection (expensive)"
+		},
+		"SelectCategoryEnableSubpages": {
+			"value": true,
+			"description": "If the extension should be active on subpages or not (true, as subpages are disabled per default)"
+		},
+		"SelectCategoryToplevelAllowed": {
+			"value": true,
+			"description": "Should the toplevel category be allowed for selection (false will hide the checkbox for it).\nNote: if you set this to false, articles in the toplevel category will be removed from this category on next edit."
+		}
+	},
+	"attributes": {
+		"VisualEditor": {
+			"PluginModules": [
+				"ext.SelectCategory.VisualEditor"
+			]
+		}
+	},
+	"manifest_version": 2
+}

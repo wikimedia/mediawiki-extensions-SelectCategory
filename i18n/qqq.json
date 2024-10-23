@@ -8,5 +8,7 @@
 	},
 	"selectcategory-title": "This message is followed by a list of the categories.\n{{Identical|Select category}}",
 	"selectcategory-desc": "{{desc|name=Select Category|url=https://www.mediawiki.org/wiki/Extension:SelectCategory}}",
-	"selectcategory-subtitle": "Unused at this time."
+	"selectcategory-subtitle": "Unused at this time.",
+	"apihelp-selectcategory-summary": "Supply the category tree related to Extension:SelectCategory for a given namespace, when activated.",
+	"apihelp-selectcategory-param-namespace": "Namespace for which the category tree is generated (based on $wgSelectCategoryRoot)"
 }

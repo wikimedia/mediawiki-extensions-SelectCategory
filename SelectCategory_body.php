@@ -17,9 +17,44 @@ use MediaWiki\MediaWikiServices;
 
 class SelectCategory {
 
-	## Entry point for the hook and main function for editing the page
-	public static function showHook( $isUpload, $pageObj ) {
+	/**
+	 * @param EditPage $editPage
+	 * @param OutputPage $output
+	 */
+	public static function onEditPage__showEditForm_initial( EditPage $editPage, OutputPage $output ) {
+		self::showHook( false, $editPage );
+	}
 
+	/**
+	 * @param SpecialUpload $uploadFormObj
+	 */
+	public static function onUploadForm_initial( SpecialUpload $uploadFormObj ) {
+		self::showHook( true, $uploadFormObj );
+	}
+
+	/**
+	 * @param EditPage $editPage
+	 */
+	public static function onEditPage__attemptSave( EditPage $editPage ) {
+		self::saveHook( false, $editPage );
+	}
+
+	/**
+	 * @param SpecialUpload $uploadFormObj
+	 * @return bool
+	 */
+	public static function onUploadForm_BeforeProcessing( SpecialUpload $uploadFormObj ) {
+		self::saveHook( true, $uploadFormObj );
+		// Per the hook documentation (but really, consider using a different hook for this altogether)
+		return true;
+	}
+
+	/**
+	 * @param bool|false $isUpload
+	 * @param EditPage|SpecialUpload $pageObj
+	 * @return bool
+	 */
+	public static function showHook( $isUpload, $pageObj ) {
 		# check if we should do anything or sleep
 		if ( self::checkConditions( $isUpload, $pageObj ) ) {
 			# Register CSS file for our select box
@@ -31,10 +66,9 @@ class SelectCategory {
 
 			# Get all categories from wiki
 			$allCats = self::getAllCategories( $isUpload ? NS_FILE : $pageObj->getTitle()->getNamespace() );
-			# Load system messages
 
 			# Get the right member variables, depending on if we're on an upload form or not
-			if( !$isUpload ) {
+			if ( !$isUpload ) {
 				# Extract all categorylinks from page
 				$pageCats = self::getPageCategories( $pageObj );
 
@@ -42,7 +76,7 @@ class SelectCategory {
 				# the <form> so we will never get contents
 				$place = 'editFormTextAfterWarn';
 				# Print the localised title for the select box
-				$textBefore = '<b>'. wfMessage( 'selectcategory-title' )->escaped() . '</b>:';
+				$textBefore = '<b>' . wfMessage( 'selectcategory-title' )->escaped() . '</b>:';
 			} else {
 				# No need to get categories
 				$pageCats = array();
@@ -50,8 +84,10 @@ class SelectCategory {
 				# Place output at the right place
 				$place = 'uploadFormTextAfterSummary';
 				# Print the part of the table including the localised title for the select box
-				$textBefore = "\n</td></tr><tr><td align='right'><label for='wpSelectCategory'>" . wfMessage( 'selectcategory-title' )->escaped() .":</label></td><td align='left'>";
+				$textBefore = "\n</td></tr><tr><td align='right'><label for='wpSelectCategory'>" .
+					wfMessage( 'selectcategory-title' )->escaped() . ":</label></td><td align='left'>";
 			}
+
 			# Introduce the output
 			$pageObj->$place .= "<!-- SelectCategory begin -->\n";
 			# Print the select box
@@ -65,56 +101,66 @@ class SelectCategory {
 			# LinkRenderer object
 			$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 
-			foreach( $allCats as $cat => $depth ) {
+			foreach ( $allCats as $cat => $depth ) {
 				$checked = '';
 
 				# See if the category was already added, so check it
-				if( isset( $pageCats[$cat] ) ) {
+				if ( isset( $pageCats[$cat] ) ) {
 					$checked = 'checked="checked"';
 				}
+
 				# Clean HTML Output
-				$category =  htmlspecialchars( $cat );
+				$category = htmlspecialchars( $cat );
 
 				# default for root category - otherwise it will always be closed
 				$open = " class='open' ";
 
 				# iterate through levels and adjust divs accordingly
-				while( $level < $depth ) {
+				while ( $level < $depth ) {
 					# Collapse subcategories after reaching the configured MaxLevel
-					if( $level >= ( $wgSelectCategoryMaxLevel - 1 ) ) {
+					if ( $level >= ( $wgSelectCategoryMaxLevel - 1 ) ) {
 						$class = 'display:none;';
 						$open = " class='closed' ";
 					} else {
 						$class = 'display:block;';
 						$open = " class='open' ";
 					}
-					$pageObj->$place .= '<ul style="'.$class.'">'."\n";
+
+					$pageObj->$place .= '<ul style="' . $class . '">' . "\n";
 					$level++;
 				}
-				if ($depth <= $olddepth) {
-					$pageObj->$place .= '</li>'."\n";
+
+				if ( $depth <= $olddepth ) {
+					$pageObj->$place .= '</li>' . "\n";
 				}
-				while( $level > $depth ) {
-					$pageObj->$place .= '</ul></li>'."\n";
+
+				while ( $level > $depth ) {
+					$pageObj->$place .= '</ul></li>' . "\n";
 					$level--;
 				}
+
 				# Clean names for text output
 				$catName = str_replace( '_', ' ', $category );
 				$title = Title::newFromText( $category, NS_CATEGORY );
+
 				# Output the actual checkboxes, indented
 				$pageObj->$place .= '<li' . $open . '>';
-				if ($level > 0 || $wgSelectCategoryToplevelAllowed) {
-					$pageObj->$place .= '<input type="checkbox" name="SelectCategoryList[]" value="'.$category.'" class="checkbox" '.$checked.' />';
+				if ( $level > 0 || $wgSelectCategoryToplevelAllowed ) {
+					$pageObj->$place .= '<input type="checkbox" name="SelectCategoryList[]" value="' . $category
+						. '" class="checkbox" ' . $checked . ' />';
 				}
+
 				$pageObj->$place .= $linkRenderer->makeLink( $title, $catName ) . "\n";
+
 				# set id for next level
-				$level_id = 'sc_'.$cat;
+				$level_id = 'sc_' . $cat;
 
 				$olddepth = $depth;
 			} # End walking through cats (foreach)
+
 			# End of list output - close all remaining divs
-			while( $level > -1 ) {
-				$pageObj->$place .= '</li></ul>'."\n";
+			while ( $level > -1 ) {
+				$pageObj->$place .= '</li></ul>' . "\n";
 				$level--;
 			}
 
@@ -126,11 +172,15 @@ class SelectCategory {
 		return true;
 	}
 
-	## Entry point for the hook and main function for saving the page
+	/**
+	 * Entry point for the hook and main function for saving the page
+	 *
+	 * @param bool $isUpload
+	 * @param EditPage|SpecialUpload $pageObj
+	 */
 	public static function saveHook( $isUpload, $pageObj ) {
 		# check if we should do anything or sleep
 		if ( self::checkConditions( $isUpload, $pageObj ) ) {
-
 			# Get localised namespace string
 			$catString = MediaWikiServices::getInstance()->getContentLanguage()->getNsText( NS_CATEGORY );
 
@@ -138,15 +188,17 @@ class SelectCategory {
 			$text = "\n";
 
 			# Iterate through all selected category entries
-			if (array_key_exists('SelectCategoryList', $_POST)) {
-				foreach( $_POST['SelectCategoryList'] as $cat ) {
+			if ( array_key_exists( 'SelectCategoryList', $_POST ) ) {
+				foreach ( $_POST['SelectCategoryList'] as $cat ) {
 					$text .= "\n[[$catString:$cat]]";
 				}
 			}
+
 			# If it is an upload we have to call a different method
 			if ( $isUpload ) {
 				# mUploadDescription has been renamed to mComment (not sure in which version,
-				# https://www.mediawiki.org/wiki/Extension_talk:SelectCategoryTagCloud says it happened in 1.13 alpha or before, but I didn't confirm that).
+				# https://www.mediawiki.org/wiki/Extension_talk:SelectCategoryTagCloud says it
+				# happened in 1.13 alpha or before, but I didn't confirm that).
 				# mUploadDescription is kept for backwards compability.
 				$pageObj->mUploadDescription .= $text;
 				$pageObj->mComment .= $text;
@@ -159,26 +211,40 @@ class SelectCategory {
 		return true;
 	}
 
-	## Get all categories from the wiki - starting with a given root or otherwise detect root automagically (expensive)
-	## Returns an array like this
-	## array (
-	##   'Name' => (int) Depth,
-	##   ...
-	## )
+	/**
+	 * Get all categories from the wiki - starting with a given root or otherwise detect root
+	 * automagically (expensive).
+	 *
+	 * Returns an array like this:
+	 * array (
+	 *   'Name' => (int) Depth,
+	 *   ...
+	 * )
+	 *
+	 * @param int $namespace Namespace number or constant like NS_FILE
+	 * @return array
+	 */
 	public static function getAllCategories( $namespace ) {
 		global $wgSelectCategoryRoot;
 
 		# Get current namespace (save duplicate call of method)
-		if( $namespace >= 0 && array_key_exists( $namespace, $wgSelectCategoryRoot ) && $wgSelectCategoryRoot[$namespace] ) {
+		if (
+			$namespace >= 0 &&
+			array_key_exists( $namespace, $wgSelectCategoryRoot ) &&
+			$wgSelectCategoryRoot[$namespace]
+		) {
 			# Include root and step into the recursion
-			$allCats = array_merge( array( $wgSelectCategoryRoot[$namespace] => 0 ),
-				self::getChildren( $wgSelectCategoryRoot[$namespace] ) );
+			$allCats = array_merge(
+				array( $wgSelectCategoryRoot[$namespace] => 0 ),
+				self::getChildren( $wgSelectCategoryRoot[$namespace] )
+			);
 		} else {
 			# Initialize return value
 			$allCats = array();
 
 			# Get a database object
 			$dbObj = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
+
 			# Get table names to access them in SQL query
 			$tblCatLink = $dbObj->tableName( 'categorylinks' );
 			$tblPage = $dbObj->tableName( 'page' );
@@ -189,8 +255,10 @@ FROM $tblCatLink AS tmpSelectCat1
 LEFT JOIN $tblPage AS tmpSelectCatPage ON (tmpSelectCat1.cl_to = tmpSelectCatPage.page_title AND tmpSelectCatPage.page_namespace = 14)
 LEFT JOIN $tblCatLink AS tmpSelectCat2 ON tmpSelectCatPage.page_id = tmpSelectCat2.cl_from
 WHERE tmpSelectCat2.cl_from IS NULL GROUP BY tmpSelectCat1.cl_to";
+
 			# Run the query
 			$res = $dbObj->query( $sql, __METHOD__ );
+
 			# Process the resulting rows
 			foreach ( $res as $row ) {
 				$allCats += array( $row->title => 0 );
@@ -202,32 +270,41 @@ WHERE tmpSelectCat2.cl_from IS NULL GROUP BY tmpSelectCat1.cl_to";
 		return $allCats;
 	}
 
+	/**
+	 * @param string $root
+	 * @param int $depth
+	 * @return array|int[]
+	 */
 	public static function getChildren( $root, $depth = 1 ) {
 		# Initialize return value
 		$allCats = array();
 
 		# Get a database object
 		$dbObj = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
+
 		# Get table names to access them in SQL query
 		$tblCatLink = $dbObj->tableName( 'categorylinks' );
 		$tblPage = $dbObj->tableName( 'page' );
 
 		# The normal query to get all children of a given root category
 		$sql = 'SELECT tmpSelectCatPage.page_title AS title
-FROM '.$tblCatLink.' AS tmpSelectCat
-LEFT JOIN '.$tblPage.' AS tmpSelectCatPage
+FROM ' . $tblCatLink . ' AS tmpSelectCat
+LEFT JOIN ' . $tblPage . ' AS tmpSelectCatPage
   ON tmpSelectCat.cl_from = tmpSelectCatPage.page_id
-WHERE tmpSelectCat.cl_to LIKE '.$dbObj->addQuotes( $root ).'
+WHERE tmpSelectCat.cl_to LIKE ' . $dbObj->addQuotes( $root ) . '
   AND tmpSelectCatPage.page_namespace = 14
 ORDER BY tmpSelectCatPage.page_title ASC;';
+
 		# Run the query
 		$res = $dbObj->query( $sql, __METHOD__ );
+
 		# Process the resulting rows
 		foreach ( $res as $row ) {
 			# Survive category link loops
-			if( $root == $row->title ) {
+			if ( $root == $row->title ) {
 				continue;
 			}
+
 			# Add current entry to array
 			$allCats += array( $row->title => $depth );
 			$allCats += self::getChildren( $row->title, $depth + 1 );
@@ -237,15 +314,19 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 		return $allCats;
 	}
 
-	## Returns an array with the categories the articles is in.
-	## Also removes them from the text the user views in the editbox.
+	/**
+	 * Returns an array with the categories the articles is in.
+	 * Also removes them from the text the user views in the editbox.
+	 *
+	 * @param EditPage $pageObj
+	 * @return array
+	 */
 	public static function getPageCategories( $pageObj ) {
-
-		if (array_key_exists('SelectCategoryList', $_POST)) {
+		if ( array_key_exists( 'SelectCategoryList', $_POST ) ) {
 			# We have already extracted the categories, return them instead
 			# of extracting zero categories from the page text.
 			$catLinks = array();
-			foreach( $_POST['SelectCategoryList'] as $cat ) {
+			foreach ( $_POST['SelectCategoryList'] as $cat ) {
 				$catLinks[$cat] = true;
 			}
 			return $catLinks;
@@ -253,25 +334,34 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 
 		# Get page contents
 		$pageText = $pageObj->textbox1;
+
 		# Get localised namespace string
 		$catString = strtolower( MediaWikiServices::getInstance()->getContentLanguage()->getNsText( NS_CATEGORY ) );
+
 		# The regular expression to find the category links
 		$pattern = "\[\[({$catString}|category):([^\|\]]*)(\|{{PAGENAME}}|)\]\]";
 		$replace = "$2";
+
 		# The container to store all found category links
-		$catLinks = array ();
+		$catLinks = array();
+
 		# The container to store the processed text
 		$cleanText = '';
 
 		# Check linewise for category links
-		foreach( explode( "\n", $pageText ) as $textLine ) {
+		foreach ( explode( "\n", $pageText ) as $textLine ) {
 			# Filter line through pattern and store the result
 			$cleanText .= preg_replace( "/{$pattern}/i", "", $textLine ) . "\n";
+
 			# Check if we have found a category, else proceed with next line
-			if( !preg_match( "/{$pattern}/i", $textLine) ) continue;
+			if ( !preg_match( "/{$pattern}/i", $textLine) ) {
+				continue;
+			}
+
 			# Get the category link from the original text and store it in our list
-			$catLinks[ str_replace( ' ', '_', preg_replace( "/.*{$pattern}/i", $replace, $textLine ) ) ] = true;
+			$catLinks[str_replace( ' ', '_', preg_replace( "/.*{$pattern}/i", $replace, $textLine ) )] = true;
 		}
+
 		# Place the cleaned text into the text box
 		$pageObj->textbox1 = trim( $cleanText );
 
@@ -279,22 +369,26 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 		return $catLinks;
 	}
 
-	# Function that checks if we meet the run conditions of the extension
-	public static function checkConditions ($isUpload, $pageObj ) {
+	/**
+	 * Function that checks if we meet the run conditions of the extension
+	 *
+	 * @param bool $isUpload
+	 * @param EditPage|SpecialUpload $pageObj
+	 * @return bool
+	 */
+	public static function checkConditions( $isUpload, $pageObj ) {
 		global $wgSelectCategoryNamespaces;
 		global $wgSelectCategoryEnableSubpages;
-
 
 		# Run only if we are in an upload, an activated namespace or if page is
 		# a subpage and subpages are enabled (unfortunately we can't use
 		# implication in PHP) but not if we do a sectionedit
-
-		if ($isUpload == true) {
+		if ( $isUpload == true ) {
 			return true;
 		}
 
 		$ns = $pageObj->getTitle()->getNamespace();
-		if( array_key_exists( $ns, $wgSelectCategoryNamespaces ) ) {
+		if ( array_key_exists( $ns, $wgSelectCategoryNamespaces ) ) {
 			$enabledForNamespace = $wgSelectCategoryNamespaces[$ns];
 		} else {
 			$enabledForNamespace = false;
@@ -303,10 +397,11 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 		# Check if page is subpage once to save method calls below
 		$isSubpage = $pageObj->getTitle()->isSubpage();
 
-		if ($enabledForNamespace
-			&& (!$isSubpage
-				|| $isSubpage && $wgSelectCategoryEnableSubpages)
-			&& $pageObj->section == false) {
+		if (
+			$enabledForNamespace &&
+			( !$isSubpage || $isSubpage && $wgSelectCategoryEnableSubpages ) &&
+			$pageObj->section == false
+		) {
 			return true;
 		}
 	}

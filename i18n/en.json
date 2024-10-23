@@ -7,5 +7,7 @@
 	},
 	"selectcategory-title": "Select categories",
 	"selectcategory-desc": "Allows the user to select from existing categories when editing a page",
-	"selectcategory-subtitle": "Shift-mouse to select multiple contiguous entries, Ctrl-mouse to select non-contiguous entries."
+	"selectcategory-subtitle": "Shift-mouse to select multiple contiguous entries, Ctrl-mouse to select non-contiguous entries.",
+	"apihelp-selectcategory-summary": "Supply the category tree related to Extension:SelectCategory for a given namespace, when activated.",
+	"apihelp-selectcategory-param-namespace": "Namespace for which the category tree is generated (based on $wgSelectCategoryRoot)"
 }
