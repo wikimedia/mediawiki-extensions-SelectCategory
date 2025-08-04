@@ -1,6 +1,6 @@
 {
 	"name": "SelectCategory",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"author": [
 		"Leon Weber",
 		"Manuel Schneider",
@@ -12,7 +12,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.29.0"
+		"MediaWiki": ">= 1.43.0"
 	},
 	"MessagesDirs": {
 		"SelectCategory": [

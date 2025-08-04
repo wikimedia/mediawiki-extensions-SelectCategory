@@ -6,7 +6,10 @@
  * @ingroup API
  */
 
+use MediaWiki\Api\ApiBase;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
+use Wikimedia\ParamValidator\ParamValidator;
 
 class SelectCategoryAPI extends ApiBase {
 	public function execute() {
@@ -32,8 +35,8 @@ class SelectCategoryAPI extends ApiBase {
 	protected function getAllowedParams() {
 		return [
 			'namespace' => [
-				ApiBase::PARAM_TYPE => MediaWikiServices::getInstance()->getNamespaceInfo()->getValidNamespaces(),
-				ApiBase::PARAM_DFLT => NS_MAIN
+				ParamValidator::PARAM_TYPE => MediaWikiServices::getInstance()->getNamespaceInfo()->getValidNamespaces(),
+				ParamValidator::PARAM_DEFAULT => NS_MAIN
 			]
 		];
 	}

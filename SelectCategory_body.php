@@ -14,7 +14,11 @@
  * @licence GNU General Public Licence 2.0 or later
  */
 
+use MediaWiki\EditPage\EditPage;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Output\OutputPage;
+use MediaWiki\Specials\SpecialUpload;
+use MediaWiki\Title\Title;
 
 class SelectCategory {
 
