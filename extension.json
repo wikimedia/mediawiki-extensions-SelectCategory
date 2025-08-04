@@ -112,6 +112,14 @@
 			"value": true,
 			"description": "If the extension should be active on subpages or not (true, as subpages are disabled per default)"
 		},
+		"SelectCategoryEnableOnEditPage": {
+			"value": false,
+			"description": "Show the category selector on action=edit?"
+		},
+		"SelectCategoryEnableOnUploadForm": {
+			"value": true,
+			"description": "Show the category selector on Special:Upload?"
+		},
 		"SelectCategoryToplevelAllowed": {
 			"value": true,
 			"description": "Should the toplevel category be allowed for selection (false will hide the checkbox for it).\nNote: if you set this to false, articles in the toplevel category will be removed from this category on next edit."

@@ -62,7 +62,6 @@ class SelectCategory {
 	public static function showHook( $isUpload, $pageObj ) {
 		# check if we should do anything or sleep
 		if ( self::checkConditions( $isUpload, $pageObj ) ) {
-			global $wgOut, $wgExtensionAssetsPath;
 			global $wgSelectCategoryMaxLevel;
 			global $wgSelectCategoryToplevelAllowed;
 			global $wgSelectCategoryChosenMode;
@@ -70,7 +69,7 @@ class SelectCategory {
 			$moduleName = $wgSelectCategoryChosenMode ? 'ext.SelectCategory.chosen' : 'ext.SelectCategory';
 			# Output the necessary CSS and JS
 			# @todo FIXME: the CSS should probably be split up to a separate module from the JS
-			$wgOut->addModules( $moduleName );
+			$pageObj->getOutput()->addModules( $moduleName );
 
 			# Get all categories from wiki
 			$allCats = self::getAllCategories( $isUpload ? NS_FILE : $pageObj->getTitle()->getNamespace() );
@@ -87,12 +86,12 @@ class SelectCategory {
 				$textBefore = '<b>' . wfMessage( 'selectcategory-title' )->escaped() . '</b>:';
 			} else {
 				# No need to get categories
-				$pageCats = array();
+				$pageCats = [];
 
 				# Place output at the right place
 				$place = 'uploadFormTextAfterSummary';
 				# Print the part of the table including the localised title for the select box
-				$textBefore = "\n</td></tr><tr><td align='right'><label for='wpSelectCategory'>" .
+				$textBefore = "\n</td></tr><tr><td><label for='wpSelectCategory'>" .
 					wfMessage( 'selectcategory-title' )->escaped() . ":</label></td><td align='left'>";
 			}
 
@@ -167,9 +166,18 @@ class SelectCategory {
 				if ( $level > 0 || $wgSelectCategoryToplevelAllowed ) {
 					if ( !$wgSelectCategoryChosenMode ) {
 						$pageObj->$place .= '<input type="checkbox" name="SelectCategoryList[]" value="' . $category
-							. '" class="checkbox" ' . ( $checked ?? 'checked=checked' ) . ' />';
+							. '" class="checkbox" ' . ( $checked ?: 'checked=checked' ) . ' />';
 					} else {
-						$pageObj->$place .= '<option value="' . $category . '" ' . ( $checked ?? 'selected' ) . '>' . $catName . '</option>';
+						# Checking for !$isUpload because we do NOT want to have _all_ the categories chosen
+						# by default on Special:Upload!
+						if ( !$isUpload ) {
+							$pageObj->$place .= '<option value="' . $category . '" ' . ( $checked ?: 'selected' ) . '>' . $catName . '</option>';
+						} else {
+							# $catName instead of $category because $category contains underscores,
+							# not spaces, whereas $catName is the "pretty-printed" version, and that's also
+							# the version we want to insert into the page
+							$pageObj->$place .= '<option value="' . $catName . '">' . $catName . '</option>';
+						}
 					}
 				}
 
@@ -223,11 +231,6 @@ class SelectCategory {
 
 			# If it is an upload we have to call a different method
 			if ( $isUpload ) {
-				# mUploadDescription has been renamed to mComment (not sure in which version,
-				# https://www.mediawiki.org/wiki/Extension_talk:SelectCategoryTagCloud says it
-				# happened in 1.13 alpha or before, but I didn't confirm that).
-				# mUploadDescription is kept for backwards compability.
-				$pageObj->mUploadDescription .= $text;
 				$pageObj->mComment .= $text;
 			} else {
 				$pageObj->textbox1 .= $text;
@@ -267,7 +270,7 @@ class SelectCategory {
 			);
 		} else {
 			# Initialize return value
-			$allCats = array();
+			$allCats = [];
 
 			# Get a database object
 			$dbObj = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
@@ -304,7 +307,7 @@ WHERE tmpSelectCat2.cl_from IS NULL GROUP BY tmpSelectCat1.cl_to";
 	 */
 	public static function getChildren( $root, $depth = 1 ) {
 		# Initialize return value
-		$allCats = array();
+		$allCats = [];
 
 		# Get a database object
 		$dbObj = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
@@ -352,7 +355,7 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 		if ( array_key_exists( 'SelectCategoryList', $_POST ) ) {
 			# We have already extracted the categories, return them instead
 			# of extracting zero categories from the page text.
-			$catLinks = array();
+			$catLinks = [];
 			foreach ( $_POST['SelectCategoryList'] as $cat ) {
 				$catLinks[$cat] = true;
 			}
@@ -370,7 +373,7 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 		$replace = "$2";
 
 		# The container to store all found category links
-		$catLinks = array();
+		$catLinks = [];
 
 		# The container to store the processed text
 		$cleanText = '';
@@ -404,8 +407,16 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 	 * @return bool
 	 */
 	public static function checkConditions( $isUpload, $pageObj ) {
-		global $wgSelectCategoryNamespaces;
-		global $wgSelectCategoryEnableSubpages;
+		global $wgSelectCategoryNamespaces, $wgSelectCategoryEnableSubpages;
+		global $wgSelectCategoryEnableOnEditPage, $wgSelectCategoryEnableOnUploadForm;
+
+		if ( $pageObj instanceof EditPage && !$wgSelectCategoryEnableOnEditPage ) {
+			return false;
+		}
+
+		if ( $pageObj instanceof SpecialUpload && !$wgSelectCategoryEnableOnUploadForm ) {
+			return false;
+		}
 
 		# Run only if we are in an upload, an activated namespace or if page is
 		# a subpage and subpages are enabled (unfortunately we can't use
