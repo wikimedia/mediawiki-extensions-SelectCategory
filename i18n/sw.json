@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Samuel Kiongo"
+		]
+	},
+	"selectcategory-placeholder": "Chagua kategoria...",
+	"apihelp-selectcategory-summary": "Toa aina ya mti inayohusiana na Kiendelezi:ChaguaKategoria kwa nafasi fulani ya jina, inapowashwa.",
+	"apihelp-selectcategory-param-namespace": "Nafasi ya majina ambayo mti wa kategoria hutengenezwa (kulingana na $wgSelectCategoryRoot)"
+}
