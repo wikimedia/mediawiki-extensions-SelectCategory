@@ -20,8 +20,8 @@
 		]
 	},
 	"AutoloadClasses": {
-		"SelectCategory": "SelectCategory_body.php",
-		"SelectCategoryAPI": "VisualEditor.php"
+		"SelectCategory": "includes/SelectCategory_body.php",
+		"SelectCategoryAPI": "includes/VisualEditor.php"
 	},
 	"APIModules": {
 		"selectcategory": "SelectCategoryAPI"
