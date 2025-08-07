@@ -28,27 +28,27 @@
 	},
 	"ResourceModules": {
 		"ext.SelectCategory": {
-			"scripts": "SelectCategory.js",
-			"styles": "SelectCategory.css",
+			"scripts": "scripts/SelectCategory.js",
+			"styles": "styles/SelectCategory.css",
 			"dependencies": "ext.SelectCategory.treeview"
 		},
 		"ext.SelectCategory.chosen": {
-			"scripts": "SelectCategoryChosen.js",
-			"styles": "SelectCategory.css",
+			"scripts": "scripts/SelectCategoryChosen.js",
+			"styles": "styles/SelectCategory.css",
 			"dependencies": "jquery.chosen"
 		},
 		"ext.SelectCategory.treeview": {
-			"scripts": "jquery.treeview.js",
-			"styles": "jquery.treeview.css"
+			"scripts": "scripts/jquery.treeview.js",
+			"styles": "styles/jquery.treeview.css"
 		},
 		"ext.SelectCategory.VisualEditor": {
-			"scripts": "VisualEditor.js",
+			"scripts": "scripts/VisualEditor.js",
 			"messages": "selectcategory-title"
 		}
 	},
 	"ResourceFileModulePaths": {
-		"localBasePath": "",
-		"remoteExtPath": "SelectCategory"
+		"localBasePath": "resources",
+		"remoteExtPath": "SelectCategory/resources"
 	},
 	"Hooks": {
 		"EditPage::showEditForm:initial": "SelectCategory::onEditPage__showEditForm_initial",

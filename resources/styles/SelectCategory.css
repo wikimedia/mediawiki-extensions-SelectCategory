@@ -15,5 +15,5 @@
 }
 
 ul#SelectCategoryList, #SelectCategoryList ul {
-  list-style: none outside none !important;
+	list-style: none outside none !important;
 }
