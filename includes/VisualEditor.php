@@ -55,6 +55,7 @@ class SelectCategoryAPI extends ApiBase {
 
 		$wgSelectCategoryOn = array_key_exists( $ns, $wgSelectCategoryNamespaces ) &&
 			$wgSelectCategoryNamespaces[$ns] &&
+			// @phan-suppress-next-line PhanRedundantCondition
 			( !$isSubpage || ( $isSubpage && $wgSelectCategoryEnableSubpages ) );
 
 		$out->addJsConfigVars( 'wgSelectCategoryOn', $wgSelectCategoryOn );

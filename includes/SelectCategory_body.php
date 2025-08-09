@@ -181,7 +181,7 @@ class SelectCategory {
 					}
 				}
 
-				$pageObj->$place .= $linkRenderer->makeLink( $title, $catName ) . "\n";
+				$pageObj->$place .= $linkRenderer->makeLink( $title, str_replace( '_', ' ', $cat ) ) . "\n";
 
 				# set id for next level
 				$level_id = 'sc_' . $cat;
@@ -437,6 +437,7 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 
 		if (
 			$enabledForNamespace &&
+			// @phan-suppress-next-line PhanRedundantCondition
 			( !$isSubpage || $isSubpage && $wgSelectCategoryEnableSubpages ) &&
 			$pageObj->section == false
 		) {
