@@ -214,6 +214,8 @@ class SelectCategory {
 	 * @param EditPage|SpecialUpload $pageObj
 	 */
 	public static function saveHook( $isUpload, $pageObj ) {
+		global $wgSelectCategoryRemoveCategoriesOnEditPage;
+
 		# check if we should do anything or sleep
 		if ( self::checkConditions( $isUpload, $pageObj ) ) {
 			# Get localised namespace string
@@ -233,7 +235,11 @@ class SelectCategory {
 			if ( $isUpload ) {
 				$pageObj->mComment .= $text;
 			} else {
-				$pageObj->textbox1 .= $text;
+				# If we are supposed to remove categories, then we also need to *readd* them here
+				# to make sure no categories get lost in translation, I mean editing :)
+				if ( $wgSelectCategoryRemoveCategoriesOnEditPage ) {
+					$pageObj->textbox1 .= $text;
+				}
 			}
 		}
 
@@ -352,6 +358,8 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 	 * @return array
 	 */
 	public static function getPageCategories( $pageObj ) {
+		global $wgSelectCategoryRemoveCategoriesOnEditPage;
+
 		if ( array_key_exists( 'SelectCategoryList', $_POST ) ) {
 			# We have already extracted the categories, return them instead
 			# of extracting zero categories from the page text.
@@ -369,7 +377,8 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 		$catString = strtolower( MediaWikiServices::getInstance()->getContentLanguage()->getNsText( NS_CATEGORY ) );
 
 		# The regular expression to find the category links
-		$pattern = "\[\[({$catString}|category):([^\|\]]*)(\|{{PAGENAME}}|)\]\]";
+		$catStringQuoted = preg_quote( $catString, '/' );
+		$pattern = "\[\[({$catStringQuoted}|category):([^\|\]]*)(\|\{\{PAGENAME\}\}|)\]\]";
 		$replace = "$2";
 
 		# The container to store all found category links
@@ -378,22 +387,42 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 		# The container to store the processed text
 		$cleanText = '';
 
+		# Are we inside a <pre> or <nowiki> block, where we should *not* remove anything?
+		$isWithinPre = false;
+
 		# Check linewise for category links
 		foreach ( explode( "\n", $pageText ) as $textLine ) {
-			# Filter line through pattern and store the result
-			$cleanText .= preg_replace( "/{$pattern}/i", "", $textLine ) . "\n";
-
-			# Check if we have found a category, else proceed with next line
-			if ( !preg_match( "/{$pattern}/i", $textLine) ) {
-				continue;
+			if ( stristr( $textLine, '<pre>' ) || stristr( $textLine, '<nowiki>' ) ) {
+				$isWithinPre = true;
 			}
 
-			# Get the category link from the original text and store it in our list
-			$catLinks[str_replace( ' ', '_', preg_replace( "/.*{$pattern}/i", $replace, $textLine ) )] = true;
+			if ( !$isWithinPre ) {
+				# Filter line through pattern and store the result
+				if ( $wgSelectCategoryRemoveCategoriesOnEditPage ) {
+					$cleanText .= preg_replace( "/{$pattern}/i", "", $textLine ) . "\n";
+				}
+
+				# Check if we have found a category, else proceed with next line
+				if ( !preg_match( "/{$pattern}/i", $textLine ) ) {
+					continue;
+				}
+
+				# Get the category link from the original text and store it in our list
+				$catLinks[str_replace( ' ', '_', preg_replace( "/.*{$pattern}/i", $replace, $textLine ) )] = true;
+			} else {
+				$cleanText .= $textLine . "\n";
+			}
+
+			if ( stristr( $textLine, '</pre>' ) || stristr( $textLine, '</nowiki>' ) ) {
+				$isWithinPre = false;
+			}
 		}
 
-		# Place the cleaned text into the text box
-		$pageObj->textbox1 = trim( $cleanText );
+		# Place the cleaned text into the text box (but only if the
+		# "mess around with categories on action=edit" feature is enabled in config)
+		if ( $wgSelectCategoryRemoveCategoriesOnEditPage ) {
+			$pageObj->textbox1 = trim( $cleanText );
+		}
 
 		# Return the list of categories as an array
 		return $catLinks;

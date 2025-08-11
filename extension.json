@@ -5,7 +5,8 @@
 		"Leon Weber",
 		"Manuel Schneider",
 		"Christian Boltz",
-		"Daniel Centore"
+		"Daniel Centore",
+		"..."
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:SelectCategory",
 	"descriptionmsg": "selectcategory-desc",
@@ -119,6 +120,10 @@
 		"SelectCategoryEnableOnUploadForm": {
 			"value": true,
 			"description": "Show the category selector on Special:Upload?"
+		},
+		"SelectCategoryRemoveCategoriesOnEditPage": {
+			"value": false,
+			"description": "If the category selector is enabled on action=edit, should category tags be removed from the edit textarea?"
 		},
 		"SelectCategoryToplevelAllowed": {
 			"value": true,
