@@ -6,5 +6,8 @@
 	},
 	"selectcategory-title": "اختر التصنيفات",
 	"selectcategory-desc": "يسمح للمستخدم بالاختيار من التصنيفات الموجودة عند تعديل صفحة",
-	"selectcategory-subtitle": "Shift-mouse لاختيار مدخلات متوافقة متعددة، Ctrl-mouse لاختيار مدخلات غير متوافقة."
+	"selectcategory-placeholder": "اختر الفئات...",
+	"selectcategory-subtitle": "Shift-mouse لاختيار مدخلات متوافقة متعددة، Ctrl-mouse لاختيار مدخلات غير متوافقة.",
+	"apihelp-selectcategory-summary": "توفير شجرة الفئات المرتبطة بـ Extension:SelectCategory لمساحة اسم معينة، عند تنشيطها.",
+	"apihelp-selectcategory-param-namespace": "مساحة الاسم التي يتم إنشاء شجرة الفئات لها (بناءً على $wgSelectCategoryRoot)"
 }
