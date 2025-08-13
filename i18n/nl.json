@@ -1,10 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"McDutchie",
 			"Siebrand"
 		]
 	},
 	"selectcategory-title": "Selecteer categorieën",
 	"selectcategory-desc": "Stelt gebruikers in staat uit bestaande categorieën te kiezen bij het bewerken van een pagina",
-	"selectcategory-subtitle": "Shiftklik om meerdere opeenvolgende categorieën te selecteren, Ctrlklik om niet-openvolgende categorieën te selecteren."
+	"selectcategory-placeholder": "Kies categorieën…",
+	"selectcategory-subtitle": "Shiftklik om meerdere opeenvolgende categorieën te selecteren, Ctrlklik om niet-openvolgende categorieën te selecteren.",
+	"apihelp-selectcategory-summary": "Geef de aan Extension:SelectCategory gerelateerde categorieboom op voor een bepaalde naamruimte, indien geactiveerd.",
+	"apihelp-selectcategory-param-namespace": "Naamruimte waarvoor de categorieboom wordt gegenereerd (gebaseerd op $wgSelectCategoryRoot)"
 }
