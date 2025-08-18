@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Derugon",
 			"Jean-Frédéric",
 			"Marius Engler <marius.engler@coop.ch>",
 			"Sherbrooke",
@@ -9,5 +10,8 @@
 	},
 	"selectcategory-title": "Choix de catégories",
 	"selectcategory-desc": "Permet à l’utilisateur de sélectionner des catégories existantes lors de l’édition d’une page",
-	"selectcategory-subtitle": "Maj + Clic pour étendre la sélection à plusieurs catégories contiguës, Ctrl + Clic pour (dé)sélectionner des catégories individuelles."
+	"selectcategory-placeholder": "Choisissez des catégories…",
+	"selectcategory-subtitle": "Maj + Clic pour étendre la sélection à plusieurs catégories contiguës, Ctrl + Clic pour (dé)sélectionner des catégories individuelles.",
+	"apihelp-selectcategory-summary": "Fournissez l’arborescence des catégories liées à Extension:SelectCategory pour un espace de noms donné, lorsqu’elle est activée.",
+	"apihelp-selectcategory-param-namespace": "Espace de noms pour lequel l’arborescence des catégories est généré (sur la base de $wgSelectCategoryRoot)"
 }
