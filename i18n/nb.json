@@ -7,5 +7,6 @@
 	},
 	"selectcategory-title": "Velg kategorier",
 	"selectcategory-desc": "Lar brukeren velge fra eksisterende kategorier når vedkommende redigerer en side",
+	"selectcategory-placeholder": "Velg kategorier …",
 	"selectcategory-subtitle": "Shift+klikk for å velge flere sammenhengende alternativer, Ctrl+klikk for å velge ikke-sammenhengende alternativer."
 }
