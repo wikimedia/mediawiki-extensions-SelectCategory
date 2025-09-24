@@ -2,10 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Alma",
+			"Toliño",
 			"Xosé"
 		]
 	},
 	"selectcategory-title": "Seleccionar categorías",
-	"selectcategory-desc": "Permite que o usuario seleccione das categorías existentes cando edita unha páxina",
-	"selectcategory-subtitle": "Faga clic co botón de maiúsculas e o rato para seleccionar varias entradas contiguas. Co botón Ctrl e o rato para seleccionar entradas non contiguas."
+	"selectcategory-desc": "Permite ao usuario seleccionar entre as categorías existentes cando edita unha páxina",
+	"selectcategory-placeholder": "Escolle as categorías...",
+	"selectcategory-subtitle": "Fai clic co botón de maiúsculas e o rato para seleccionares varias entradas contiguas. Fai clic co botón Ctrl e o rato para seleccionares entradas non contiguas.",
+	"apihelp-selectcategory-summary": "Proporciona a árbore de categorías relacionada con «Extension:SelectCategory» para un espazo de nomes determinado, cando estea activada.",
+	"apihelp-selectcategory-param-namespace": "Espazo de nomes para o que se xera a árbore de categorías (baseado en $wgSelectCategoryRoot)"
 }
