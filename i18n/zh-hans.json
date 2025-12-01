@@ -2,10 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Gaoxuewei",
+			"Peterxy12",
 			"Shinjiman"
 		]
 	},
 	"selectcategory-title": "选择分类",
 	"selectcategory-desc": "允许用户编辑页面时，自列表选择页面分类。",
-	"selectcategory-subtitle": "按着Shift键再以鼠标选取连续的项目，按着Ctrl键再以鼠标选取非连续的项目。"
+	"selectcategory-placeholder": "挑选分类…",
+	"selectcategory-subtitle": "按着Shift键再以鼠标选取连续的项目，按着Ctrl键再以鼠标选取非连续的项目。",
+	"apihelp-selectcategory-summary": "当激活时，会对指命名空间提供与Extension:SelectCategory相关的分类树。",
+	"apihelp-selectcategory-param-namespace": "为其产生分类树的命名空间（基于$wgSelectCategoryRoot）"
 }
