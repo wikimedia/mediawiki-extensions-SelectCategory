@@ -3,10 +3,14 @@
 		"authors": [
 			"Alexsh",
 			"Mark85296341",
-			"Shinjiman"
+			"Shinjiman",
+			"Kly"
 		]
 	},
 	"selectcategory-title": "選擇分類",
 	"selectcategory-desc": "讓使用者可以在編輯頁面時直接選擇已存在的分類",
-	"selectcategory-subtitle": "按著 Shift 鍵再以滑鼠選取連續的項目，按著 Ctrl 鍵再以滑鼠選取非連續的項目。"
+	"selectcategory-placeholder": "挑選分類…",
+	"selectcategory-subtitle": "按著 Shift 鍵再以滑鼠選取連續的項目，按著 Ctrl 鍵再以滑鼠選取非連續的項目。",
+	"apihelp-selectcategory-summary": "當啟用時，會對指命名空間提供與 Extension:SelectCategory 相關的分類樹。",
+	"apihelp-selectcategory-param-namespace": "為其產生分類樹的命名空間（基於 $wgSelectCategoryRoot）"
 }
