@@ -3,10 +3,11 @@
 		"authors": [
 			"EugeneZelenko",
 			"Jim-by",
+			"Red Winged Duck",
 			"Ucukor"
 		]
 	},
-	"selectcategory-title": "Выбар катэгорый",
-	"selectcategory-desc": "Дазваляе ўдзельніку выбіраць зь існых катэґорый пад час рэдагаваньня старонкі",
+	"selectcategory-title": "Выбар катэгорыяў",
+	"selectcategory-desc": "Дазваляе ўдзельніку выбіраць зь існых катэгорыяў падчас рэдагаваньня старонкі",
 	"selectcategory-subtitle": "Shift+клік мышкі выбірае мноства суседніх элемэнтаў, Ctrl+клік мышкі выбірае элемэнты, якія знаходзяцца ня побач."
 }
