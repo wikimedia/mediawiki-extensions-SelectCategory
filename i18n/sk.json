@@ -1,10 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helix84"
+			"Helix84",
+			"Wizzard"
 		]
 	},
 	"selectcategory-title": "Vybrať kategórie",
 	"selectcategory-desc": "Umožňuje používateľovi vybrať z existujúcich kategórií pri úprave stránky",
-	"selectcategory-subtitle": "Shift+kliknutie označí súvislú skupinu položiek, ctrl+kliknutie označí jednotlivé nesúvislé položky."
+	"selectcategory-placeholder": "Vyberte kategórie…",
+	"selectcategory-subtitle": "Shift+kliknutie označí súvislú skupinu položiek, ctrl+kliknutie označí jednotlivé nesúvislé položky.",
+	"apihelp-selectcategory-summary": "Poskytne strom kategórií súvisiaci s rozšírením Extension:SelectCategory pre daný menný priestor, ak je aktivovaný.",
+	"apihelp-selectcategory-param-namespace": "Menný priestor, pre ktorý sa generuje strom kategórií (na základe $wgSelectCategoryRoot)"
 }
