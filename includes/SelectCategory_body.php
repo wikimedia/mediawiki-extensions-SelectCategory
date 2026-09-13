@@ -271,7 +271,7 @@ class SelectCategory {
 		) {
 			# Include root and step into the recursion
 			$allCats = array_merge(
-				array( $wgSelectCategoryRoot[$namespace] => 0 ),
+				[ $wgSelectCategoryRoot[$namespace] => 0 ],
 				self::getChildren( $wgSelectCategoryRoot[$namespace] )
 			);
 		} else {
@@ -286,18 +286,51 @@ class SelectCategory {
 			$tblPage = $dbObj->tableName( 'page' );
 
 			# Automagically detect root categories
-			$sql = "SELECT tmpSelectCat1.cl_to AS title
+			if ( version_compare( MW_VERSION, '1.45', '<' ) ) {
+				$sql = "SELECT tmpSelectCat1.cl_to AS title
 FROM $tblCatLink AS tmpSelectCat1
 LEFT JOIN $tblPage AS tmpSelectCatPage ON (tmpSelectCat1.cl_to = tmpSelectCatPage.page_title AND tmpSelectCatPage.page_namespace = 14)
 LEFT JOIN $tblCatLink AS tmpSelectCat2 ON tmpSelectCatPage.page_id = tmpSelectCat2.cl_from
 WHERE tmpSelectCat2.cl_from IS NULL GROUP BY tmpSelectCat1.cl_to";
-
-			# Run the query
-			$res = $dbObj->query( $sql, __METHOD__ );
+				# Run the query
+				$res = $dbObj->query( $sql, __METHOD__ );
+			} else {
+				/*
+				$sql = "SELECT tmpSelectCat1Target.lt_title AS title
+FROM $tblCatLink AS tmpSelectCat1
+JOIN {$dbObj->tableName( 'linktarget' )} AS tmpSelectCat1Target
+    ON tmpSelectCat1.cl_target_id = tmpSelectCat1Target.lt_id
+    AND tmpSelectCat1Target.lt_namespace = 14
+LEFT JOIN $tblPage AS tmpSelectCatPage
+    ON tmpSelectCat1Target.lt_title = tmpSelectCatPage.page_title
+    AND tmpSelectCatPage.page_namespace = 14
+LEFT JOIN $tblCatLink AS tmpSelectCat2
+    ON tmpSelectCatPage.page_id = tmpSelectCat2.cl_from
+WHERE tmpSelectCat2.cl_from IS NULL
+GROUP BY tmpSelectCat1Target.lt_title";
+				*/
+				$res = $dbObj->select(
+					[
+						'cl1' => 'categorylinks',
+						'lt1' => 'linktarget',
+						'page' => 'page',
+						'cl2' => 'categorylinks',
+					],
+					[ 'lt1.lt_title AS title' ],
+					[ 'cl2.cl_from IS NULL' ],
+					__METHOD__,
+					[ 'GROUP BY' => 'lt1.lt_title' ],
+					[
+						'lt1' => [ 'INNER JOIN', 'cl1.cl_target_id = lt1.lt_id AND lt1.lt_namespace = 14' ],
+						'page' => [ 'LEFT JOIN', 'lt1.lt_title = page.page_title AND page.page_namespace = 14' ],
+						'cl2' => [ 'LEFT JOIN', 'page.page_id = cl2.cl_from' ]
+					]
+				);
+			}
 
 			# Process the resulting rows
 			foreach ( $res as $row ) {
-				$allCats += array( $row->title => 0 );
+				$allCats += [ $row->title => 0 ];
 				$allCats += self::getChildren( $row->title );
 			}
 		}
@@ -318,21 +351,36 @@ WHERE tmpSelectCat2.cl_from IS NULL GROUP BY tmpSelectCat1.cl_to";
 		# Get a database object
 		$dbObj = MediaWikiServices::getInstance()->getDBLoadBalancer()->getConnection( DB_REPLICA );
 
-		# Get table names to access them in SQL query
-		$tblCatLink = $dbObj->tableName( 'categorylinks' );
-		$tblPage = $dbObj->tableName( 'page' );
-
-		# The normal query to get all children of a given root category
-		$sql = 'SELECT tmpSelectCatPage.page_title AS title
-FROM ' . $tblCatLink . ' AS tmpSelectCat
-LEFT JOIN ' . $tblPage . ' AS tmpSelectCatPage
-  ON tmpSelectCat.cl_from = tmpSelectCatPage.page_id
-WHERE tmpSelectCat.cl_to LIKE ' . $dbObj->addQuotes( $root ) . '
-  AND tmpSelectCatPage.page_namespace = 14
-ORDER BY tmpSelectCatPage.page_title ASC;';
-
-		# Run the query
-		$res = $dbObj->query( $sql, __METHOD__ );
+		# Run the normal query to get all children of a given root category
+		if ( version_compare( MW_VERSION, '1.45', '<' ) ) {
+			$res = $dbObj->select(
+				[ 'categorylinks', 'page' ],
+				[ 'title' => 'page_title' ],
+				[
+					'cl_to ' . $dbObj->buildLike( $root ),
+					'page_namespace' => NS_CATEGORY
+				],
+				__METHOD__,
+				[ 'ORDER BY' => 'page_title ASC' ],
+				[ 'page' => [ 'LEFT JOIN', 'cl_from = page_id' ] ]
+			);
+		} else {
+			$res = $dbObj->select(
+				[ 'linktarget', 'categorylinks', 'page' ],
+				[ 'title' => 'page_title' ],
+				[
+					'lt_namespace' => NS_CATEGORY,
+					'lt_title ' . $dbObj->buildLike( $root ),
+					'page_namespace' => NS_CATEGORY
+				],
+				__METHOD__,
+				[ 'ORDER BY' => 'page_title ASC' ],
+				[
+					'linktarget' => [ 'JOIN', 'cl_target_id = lt_id' ],
+					'page' => [ 'LEFT JOIN', 'cl_from = page_id' ]
+				]
+			);
+		}
 
 		# Process the resulting rows
 		foreach ( $res as $row ) {
@@ -342,7 +390,7 @@ ORDER BY tmpSelectCatPage.page_title ASC;';
 			}
 
 			# Add current entry to array
-			$allCats += array( $row->title => $depth );
+			$allCats += [ $row->title => $depth ];
 			$allCats += self::getChildren( $row->title, $depth + 1 );
 		}
 
