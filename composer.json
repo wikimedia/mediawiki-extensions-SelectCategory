@@ -16,5 +16,10 @@
 		"phan": "phan -d . --long-progress-bar",
 		"seccheck": "seccheck-mwext",
 		"seccheck-fast": "seccheck-fast-mwext"
+	},
+	"config": {
+		"audit": {
+			"block-insecure": false
+		}
 	}
 }
